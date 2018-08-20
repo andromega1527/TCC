@@ -44,19 +44,19 @@
 						@$pesquisa = $_POST['pesquisa'];
 
 						if (isset($pesquisa)) {
-							$sqlSelect = "SELECT * FROM Orcamento WHERE Nome LIKE '%$pesquisa%' ORDER BY 'Nome' DESC ";
+							$sqlSelect = "SELECT * FROM Orcamento WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY 'Cliente.Nome' ASC ";
 						} else {
-							$sqlSelect = "SELECT * FROM Orcamento ORDER BY 'Cliente' DESC ";
+							$sqlSelect = "SELECT * FROM Orcamento WHERE Status = 'ativo' or Status = 'Ativo' ORDER BY 'Cliente.Nome' ASC ";
 						}
 
 						//Conexão com o Banco
 						require("ConectBD.php");
 
-						$resultado = mysqli_query($link, "SELECT * FROM Orcamento");
+						$resultado = mysqli_query($link, $sqlSelect);
 
 						while ($cont = mysqli_fetch_array($resultado)) {
 							$status = $cont['Status'];
-							$cliente = $cont['Cliente'];
+							$cliente = $cont['Cliente.Nome'];
 							$funcionario = $cont['Funcionario'];
 							$data = $cont['Data_Emissao'];
 							$hora = $cont['Hora_Emissao'];

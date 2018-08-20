@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Ago-2018 às 22:19
--- Versão do servidor: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Generation Time: 19-Ago-2018 às 22:25
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `carecaorcamento`
 --
-CREATE DATABASE IF NOT EXISTS `carecaorcamento` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `carecaorcamento`;
 
 -- --------------------------------------------------------
 
@@ -39,7 +39,9 @@ CREATE TABLE `cidade` (
 --
 
 INSERT INTO `cidade` (`Codigo_Cidade`, `Nome`, `Descricao`) VALUES
-(1, 'sdfssdf', '');
+(3, 'v', ''),
+(4, 'b', ''),
+(5, 'c', '');
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`Codigo_Cliente`, `Nome`, `Sexo`, `Data_de_Nascimento`, `CPF`, `CNPJ`, `Telefone`, `Celular`, `Endereco`, `CEP`, `Bairro`, `Numero`, `Email`, `Estado`, `Cidade`) VALUES
-(1, 'asdasd', 'hfghfg', 'sadas', 'sdfdfsd', 'dfgfdgdfg', 'sdfsdf', 'sdfsdfsd', 'asdasdas', 'sfdsfd', 'dasdasd', 31312, 'rdsfsd', 0, 0);
+(3, 'v', 'a', '2018-08-08', 'a', 'a', 'a', ' a', 'a', 'a', 'a', 1, 'a', 3, 3),
+(4, 'b', 'b', '2018-08-03', 'b', 'b', 'b', ' b', 'b', 'b', 'b', 2, 'b', 4, 4),
+(5, 'ae', 'm', '2018-08-08', 'a', 'a', 'a', ' a', 'a', 'a', 'a', 1, 'a', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -100,7 +104,9 @@ CREATE TABLE `estado` (
 --
 
 INSERT INTO `estado` (`Codigo_Estado`, `Nome`, `Descricao`) VALUES
-(1, 'fsdfsd', '');
+(3, 'v', ''),
+(4, 'b', ''),
+(5, 'e', '');
 
 -- --------------------------------------------------------
 
@@ -118,15 +124,19 @@ CREATE TABLE `funcionario` (
   `Endereco` varchar(255) NOT NULL,
   `Bairro` varchar(255) NOT NULL,
   `CEP` varchar(255) NOT NULL,
-  `Numero` int(11) NOT NULL
+  `Numero` int(11) NOT NULL,
+  `Email` varchar(20) NOT NULL,
+  `Status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`Codigo_Funcionario`, `Nome`, `CPF`, `Sexo`, `Telefone`, `Celular`, `Endereco`, `Bairro`, `CEP`, `Numero`) VALUES
-(1, 'asdasd', 'sdfdfsd', 'hfghfg', 'sdfsdf', 'sdfsdfsd', 'asdasdas', 'dasdasd', 'sfdsfd', 31312);
+INSERT INTO `funcionario` (`Codigo_Funcionario`, `Nome`, `CPF`, `Sexo`, `Telefone`, `Celular`, `Endereco`, `Bairro`, `CEP`, `Numero`, `Email`, `Status`) VALUES
+(3, 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 1, 'i', 'desativo'),
+(4, 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 2, 'u', 'ativo'),
+(5, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 3, 'a', 'Ativo');
 
 -- --------------------------------------------------------
 
@@ -311,33 +321,32 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `Codigo_Cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo_Cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `Codigo_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `Codigo_Estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo_Estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `Codigo_Funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo_Funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `orcamento`
 --
 ALTER TABLE `orcamento`
-  MODIFY `Codigo_Orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;--
--- Database: `phpmyadmin`
---
-CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `phpmyadmin`;
-
--- --------------------------------------------------------
+  MODIFY `Codigo_Orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

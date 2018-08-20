@@ -49,7 +49,7 @@
     			<?php
     				require("ConectBD.php");
 
-    				$resultado = mysqli_query($link, "SELECT Nome FROM Estado");
+    				$resultado = mysqli_query($link, "SELECT * FROM Estado");
 
 					while($cont = mysqli_fetch_array($resultado)) {
                         $nome = $cont['Nome'];
@@ -65,7 +65,7 @@
     			<?php
                     require("ConectBD.php");
 
-                    $resultado = mysqli_query($link, "SELECT Nome FROM Cidade");
+                    $resultado = mysqli_query($link, "SELECT * FROM Cidade ORDER BY 'Nome'");
 
                     while($cont = mysqli_fetch_array($resultado)) {
                         $nome = $cont['Nome'];

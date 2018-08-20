@@ -14,7 +14,6 @@
 <?php
 	require "menu.php";
 ?>
-
 	<div id="lista">
 		<h1>Lista de Clientes</h1><br>
 
@@ -23,10 +22,13 @@
 			<input type="submit" value="Pesquisar">
 		</form><br><br>
 
-		<div align="center">
+		<div id="tabela" align="center">
+			<button id="editar">Editar Dados</button>
+
 			<table class="tabela" border="2px" align="center">
-				<thead>
-					<tr>
+				<thead id="tabela">
+					<tr id="coluna_Principal">
+						<td>Codigo do Cliente</td>
 						<td>Nome</td>
 						<td>Sexo</td>
 						<td>Data de Nascimento</td>
@@ -38,12 +40,13 @@
 						<td>CEP</td>
 						<td>Bairro</td>
 						<td>Número</td>
+						<td>Email</td>
 						<td>Estado</td>
 						<td>Cidade</td>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="tabela_Dados">
 					<?php
 						@$pesquisa = $_POST['pesquisa'];
 
@@ -51,16 +54,21 @@
 						require("ConectBD.php");
 
 						if(isset($pesquisa)){
-						  	$sqlSelect = "SELECT * FROM Cliente WHERE Nome LIKE '%$pesquisa%' ORDER BY 'Nome' DESC ";
+						  	$sqlSelect = "SELECT * FROM Cliente WHERE Nome LIKE '%$pesquisa%' ORDER BY 'Nome' ASC ";
 						} else {
-						  	$sqlSelect = "SELECT * FROM Cliente ORDER BY 'Nome' DESC ";
+						  	$sqlSelect = "SELECT * FROM Cliente ORDER BY 'Nome' ASC ";
 						}
 
 						$resultado = mysqli_query($link, $sqlSelect);
 						$resultadoE = mysqli_query($link, "SELECT * FROM Estado");
 						$resultadoCi = mysqli_query($link, "SELECT * FROM Cidade");
 
+						$c = 1;
+
 						while ($cont = mysqli_fetch_array($resultado) and $contE = mysqli_fetch_array($resultadoE) and $contCi = mysqli_fetch_array($resultadoCi)) {
+							$cod = $cont['Codigo_Cliente'];
+							$codE = $contE['Codigo_Estado'];
+							$codCi = $contCi['Codigo_Cidade'];
 							$nome = $cont['Nome'];
 							$sexo = $cont['Sexo'];
 							$data = $cont['Data_de_Nascimento'];
@@ -76,7 +84,11 @@
 							$estado = $contE['Nome'];
 							$cidade = $contCi['Nome'];
 
-							echo "<tr>
+							echo "<tr id=\"edit". $c++ ."\">
+									<input type=\"hidden\" name=\"cod\" value=\"$cod\">
+									<input type=\"hidden\" name=\"codCi\" value=\"$codCi\">
+									<input type=\"hidden\" name=\"codE\" value=\"$codE\">
+									<td>$cod</td>
 									<td>$nome</td>
 									<td>$sexo</td>
 									<td>$data</td>
@@ -88,6 +100,7 @@
 									<td>$cep</td>
 									<td>$bairro</td>
 									<td>$numero</td>
+									<td>$email</td>
 									<td>$estado</td>
 									<td>$cidade</td>
 					  			</tr>";
@@ -105,6 +118,8 @@
 <?php
 	require "script.php";
 ?>
+
+<script src="js2/mainCliente.js"></script>
 
 </body>
 </html>
