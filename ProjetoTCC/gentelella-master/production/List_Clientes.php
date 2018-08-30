@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<html lang="pt">
 	<meta charset="utf-8" />
 	<title>Lista de Clientes</title>
 
@@ -14,7 +15,10 @@
 <?php
 	require "menu.php";
 ?>
+
+<div id="scroll" class="right_col" role="main">
 	<div id="lista">
+		
 		<h1>Lista de Clientes</h1><br>
 
 		<form method="Post" action="">
@@ -28,12 +32,10 @@
 			<table class="tabela" border="2px" align="center">
 				<thead id="tabela">
 					<tr id="coluna_Principal">
-						<td>Codigo do Cliente</td>
 						<td>Nome</td>
 						<td>Sexo</td>
 						<td>Data de Nascimento</td>
-						<td>CPF</td>
-						<td>CNPJ</td>
+						<td>CPF/CNPJ</td>
 						<td>Telefone</td>
 						<td>Celular</td>
 						<td>Endereço</td>
@@ -54,26 +56,39 @@
 						require("ConectBD.php");
 
 						if(isset($pesquisa)){
-						  	$sqlSelect = "SELECT * FROM Cliente WHERE Nome LIKE '%$pesquisa%' ORDER BY 'Nome' ASC ";
+						  	$sqlSelect = "SELECT Cliente.Codigo_Cliente, Cliente.Nome, Cliente.Sexo, Cliente.Data_de_Nascimento, Cliente.CPF, Cliente.CNPJ, Cliente.Telefone, Cliente.Celular, Cliente.Endereco, Cliente.CEP, Cliente.Bairro, Cliente.Numero, Cliente.Email, Estado.Codigo_Estado, Estado.Nome, Cidade.Codigo_Cidade, Cidade.Nome
+						  				  FROM Cliente 
+						  				  INNER JOIN Estado ON Cliente.Estado = Estado.Codigo_Estado
+						  				  INNER JOIN Cidade ON Cliente.Cidade = Cidade.Codigo_Cidade
+						  				  WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY Cliente.Nome ASC ";
 						} else {
-						  	$sqlSelect = "SELECT * FROM Cliente ORDER BY 'Nome' ASC ";
+						  	$sqlSelect = "SELECT Cliente.Codigo_Cliente, Cliente.Nome, Cliente.Sexo, Cliente.Data_de_Nascimento, Cliente.CPF, Cliente.CNPJ, Cliente.Telefone, Cliente.Celular, Cliente.Endereco, Cliente.CEP, Cliente.Bairro, Cliente.Numero, Cliente.Email, Estado.Codigo_Estado, Estado.Nome, Cidade.Codigo_Cidade, Cidade.Nome 
+						  			      FROM Cliente
+						  			      INNER JOIN Estado ON Cliente.Estado = Estado.Codigo_Estado
+						  				  INNER JOIN Cidade ON Cliente.Cidade = Cidade.Codigo_Cidade
+						  			      ORDER BY Cliente.Nome ASC ";
 						}
 
 						$resultado = mysqli_query($link, $sqlSelect);
-						$resultadoE = mysqli_query($link, "SELECT * FROM Estado");
-						$resultadoCi = mysqli_query($link, "SELECT * FROM Cidade");
 
 						$c = 1;
 
-						while ($cont = mysqli_fetch_array($resultado) and $contE = mysqli_fetch_array($resultadoE) and $contCi = mysqli_fetch_array($resultadoCi)) {
+						while ($cont = mysqli_fetch_array($resultado)) {
 							$cod = $cont['Codigo_Cliente'];
-							$codE = $contE['Codigo_Estado'];
-							$codCi = $contCi['Codigo_Cidade'];
-							$nome = $cont['Nome'];
+							$codE = $cont['Codigo_Estado'];
+							$codCi = $cont['Codigo_Cidade'];
+							$nome = $cont[1];
 							$sexo = $cont['Sexo'];
 							$data = $cont['Data_de_Nascimento'];
-							$cpf = $cont['CPF'];
-							$cnpj = $cont['CNPJ'];
+
+							if (isset($cont['CPF']) and $cont['CPF'] != '') {
+								$cpf = $cont['CPF'];
+								$cTD = "<td>$cpf</td>";
+							} else if(isset($cont['CNPJ']) and $cont['CNPJ'] != '') {
+								$cnpj = $cont['CNPJ'];
+								$cTD = "<td>$cnpj</td>";
+							}
+
 							$telefone = $cont['Telefone'];
 							$celular = $cont['Celular'];
 							$endereco = $cont['Endereco'];
@@ -81,20 +96,16 @@
 							$bairro = $cont['Bairro'];
 							$numero = $cont['Numero'];
 							$email = $cont['Email'];
-							$estado = $contE['Nome'];
-							$cidade = $contCi['Nome'];
+							$estado = $cont[14];
+							$cidade = $cont['Nome'];
 
 							echo "<tr id=\"edit". $c++ ."\">
 									<input type=\"hidden\" name=\"cod\" value=\"$cod\">
-									<input type=\"hidden\" name=\"codCi\" value=\"$codCi\">
-									<input type=\"hidden\" name=\"codE\" value=\"$codE\">
-									<td>$cod</td>
 									<td>$nome</td>
 									<td>$sexo</td>
-									<td>$data</td>
-									<td>$cpf</td>
-									<td>$cnpj</td>
-									<td>$telefone</td>
+									<td>$data</td>".
+									$cTD
+									."<td>$telefone</td>
 									<td>$celular</td>
 									<td>$endereco</td>
 									<td>$cep</td>
@@ -111,6 +122,7 @@
 				
 			</table>
 			
+		
 		</div>
 		
 	</div>

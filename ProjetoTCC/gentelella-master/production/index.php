@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -19,6 +19,8 @@
   <?php
     require "menu.php";
   ?>
+
+    <div class="right_col" role="main">
 
   
 

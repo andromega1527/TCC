@@ -1,0 +1,16 @@
+Cidade: Lógica Terminada
+Estado: Lógica Terminada
+Preço: Lógica Terminada
+Produto: Lógica Terminada
+Funcionario: Lógica Terminada
+Cliente: Lógica Terminada
+Relatório de Clientes: Lógica Terminada
+Orçamento: Em Trabalho
+Relatório de Orçamento: Em Trabalho
+Login: Em Trabalho
+Design: Em Trabalho
+
+*"Cliente/Empresa" trocar nome do Menu.
+*Fazer uma label empresa.
+*Colocara para aparecer a cidade e estado na seleção de preço.
+*Arrumar a aba de lembraças.

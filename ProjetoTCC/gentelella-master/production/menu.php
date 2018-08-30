@@ -39,24 +39,49 @@
                     <li><a href="historico.php">Historico de Alteraçoes</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-edit"></i> Orçamentos <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-edit"></i> Orçamento <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="List_Orcamentos_Ativos.php">Orçamentos Ativos</a></li>
                     <li><a href="List_Orcamentos.php">Lista de Orçamentos</a></li>
                     <li><a href="Cad_Orcamento.php">Cadastro de Orçamentos</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-desktop"></i> Clientes <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-child"></i> Cliente <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
+                    <li><a href="Relatorio_Clientes.php">Relatório de Clientes</a></li>
                     <li><a href="List_Clientes.php">Lista de Clientes</a></li>
                     <li><a href="Cad_Cliente.php">Cadastro de Clientes</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-desktop"></i> Funcionarios <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-users"></i> Funcionario <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="List_Funcionarios_Ativos.php">Lista de Funcionarios Ativos</a></li>
                     <li><a href="List_Funcionarios.php">Lista de Funcionarios</a></li>
                     <li><a href="Cad_Funcionario.php">Cadastro de Funcionarios</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-globe"></i> Estado <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="List_Estados.php">Lista Estados</a></li>
+                    <li><a href="Cad_Estado.php">Cadastro de Estados</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-globe"></i> Cidade <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="List_Cidades.php">Lista de Cidades</a></li>
+                    <li><a href="Cad_Cidade.php">Cadastro de Cidades</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-money"></i> Preço <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="List_Precos.php">Lista de Preços</a></li>
+                    <li><a href="Cad_Preco.php">Cadastro de Preços</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-gift"></i> Produto <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="List_Produtos.php">Lista de Produtos</a></li>
+                    <li><a href="Cad_Produto.php">Cadastro de Produtos</a></li>
                   </ul>
                 </li>
               </ul>
@@ -159,11 +184,7 @@
           </nav>
         </div>
       </div>
-      <!-- /top navigation -->
-
-      <!-- page content -->
-      <div class="right_col" role="main">
-      <!-- top tiles -->';
+      <!-- /top navigation -->';
 
 	echo $menu;
 ?>

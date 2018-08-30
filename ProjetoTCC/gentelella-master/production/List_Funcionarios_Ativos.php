@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<html lang="pt">
 	<meta charset="utf-8" />
 	<title>Lista de Funcionários Ativos</title>
 
@@ -14,7 +15,7 @@
 	require "menu.php";
 ?>
 
-
+<div class="right_col" id="scroll" role="main">
 	<div id="lista">
 		<h1>Lista de Funcionários Ativos</h1><br>
 
@@ -51,9 +52,9 @@
 						require("ConectBD.php");
 
 						if (isset($pesquisa)) {
-							$sqlSelect = "SELECT * FROM Funcionario WHERE Nome LIKE '%$pesquisa%' and Status = 'Ativo' and Status = 'ativo'ORDER BY 'Nome' ASC ";
+							$sqlSelect = "SELECT * FROM Funcionario WHERE Nome LIKE '%$pesquisa%' and Status = 'Ativo' ORDER BY Nome ASC ";
 						} else {
-							$sqlSelect = "SELECT * FROM Funcionario WHERE Status = 'ativo' or Status = 'Ativo' ORDER BY 'Nome' ASC ";
+							$sqlSelect = "SELECT * FROM Funcionario WHERE Status = 'Ativo' ORDER BY Nome ASC ";
 						}
 
 						$resultado = mysqli_query($link, $sqlSelect);

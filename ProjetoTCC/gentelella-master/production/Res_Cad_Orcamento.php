@@ -13,10 +13,11 @@
 
 	$cod = mysqli_query($link, "SELECT Codigo_Orcamento FROM orcamento");
 
-	$sqlInsert = "INSERT INTO orcamento (Status, Cliente, Funcionario, Data_Emissao, Hora_Emissao, Desconto, Parcelamemto, SubTotal, Total) VALUES ('$status', '$cliente', '$funcionario', '$data', '$hora', '$desconto', '$parcelamento', '$subT', '$total')";
+	$sqlInsert = "INSERT INTO orcamento (Status, Cliente, Funcionario, Data_Emissao, Hora_Emissao, Desconto, Parcelamento, SubTotal, Total) VALUES ('$status', '$cliente', '$funcionario', '$data', '$hora', '$desconto', '$parcelamento', '$subT', '$total')";
 
 	mysqli_query($link, $sqlInsert) or die ("Não foi possivel inserir no Banco !!! :(");
 
-	echo "Dados cadastrados com sucesso!!! :)";
-	echo "<br><br><a href='Cad_Orcamento.php'>Voltar</a>";
+	mysqli_close();
+
+	header("Location:Cad_Orcamento.php");
 ?>

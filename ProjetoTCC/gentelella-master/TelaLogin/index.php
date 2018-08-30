@@ -25,25 +25,17 @@
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="email" id="email" placeholder="Email" />
-				
-			</form>
-			
-			<form id="signup-form" method="post" action="#">
-				<input type="password" name="senha" id="senha" placeholder="Senha" />
+			<form id="signup-form" method="Post" action="ope.php">
+				<div><input style="position: absolute;" type="email" name="email" id="email" placeholder="Email" /></div><br>
+				<div><input style="position: absolute; bottom: -50px; left: 1px" type="password" name="senha" id="senha" placeholder="Senha" /></div><br>
 
-			</form>
-
-			<form id="signup-form" method="post" action="../production">
-				<input type="submit" value="Entrar" />
-
+				<div><input style="position: absolute; bottom: -108px; left: 1px" type="submit" name="Entrar"></div>
 			</form>
 		<!-- Footer -->
 			<footer id="footer">
 				<ul class="icons">
 					
-					<li><a href="mailto:careca-calhas@hotmail.com" class="icon fa-envelope-o"><span class="label">Email</span>  careca-calhas@hotmail.com</a></li>
+					<li><a href="mailto:careca-calhas@hotmail.com" class="icon fa-envelope-o"><span class="label">Email</span>   careca-calhas@hotmail.com</a></li>
 				</ul>
 				<ul class="copyright">
 					<li></li><li><a href="http://html5up.net"></a></li>

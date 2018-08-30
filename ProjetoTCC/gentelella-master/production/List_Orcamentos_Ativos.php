@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<html lang="pt">
 	<meta charset="utf-8" />
-	<title>Lista de Orçamentos ativos</title>
+	<title>Lista de Orçamentos Ativos</title>
 
 	<?php
 		require "link.php";
@@ -14,7 +15,7 @@
 	require "menu.php";
 ?>
 
-
+<div class="right_col" id="scroll" role="main">
 	<div id="lista">
 		<h1>Lista de Orçamentos Ativos</h1><br>
 
@@ -44,9 +45,9 @@
 						@$pesquisa = $_POST['pesquisa'];
 
 						if (isset($pesquisa)) {
-							$sqlSelect = "SELECT * FROM Orcamento WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY 'Cliente.Nome' ASC ";
+							$sqlSelect = "SELECT * FROM Orcamento WHERE Cliente.Nome LIKE '%$pesquisa%' and Status = 'Ativo' ORDER BY Cliente.Nome ASC ";
 						} else {
-							$sqlSelect = "SELECT * FROM Orcamento WHERE Status = 'ativo' or Status = 'Ativo' ORDER BY 'Cliente.Nome' ASC ";
+							$sqlSelect = "SELECT * FROM Orcamento WHERE Status = 'Ativo' ORDER BY Cliente.Nome ASC ";
 						}
 
 						//Conexão com o Banco

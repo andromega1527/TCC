@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <html lang="pt">
     <meta charset="utf-8" />
     <title>Edição de Cadastro de Funcionários</title>
 
@@ -26,38 +27,45 @@
         require "menu.php";
     ?>
 
-    <div id="formulario">
-    	<h1>Cadastro de Funcionários</h1>
+    <div class="right_col" role="main">
+        <div id="formulario">
+        	<h1>Cadastro de Funcionários</h1>
 
-    	<form action="Res_Edit_Funcionario.php" method="Post" name="formulario">
-            <input type="hidden" name="cod" value="<?php echo $dados["Codigo_Funcionario"]; ?>">
+        	<form action="Res_Edit_Funcionario.php" method="Post" name="formulario">
+                <input type="hidden" name="cod" value="<?php echo $dados["Codigo_Funcionario"]; ?>">
 
-    		Nome: <input type="text" name="nome" value="<?php echo $dados["Nome"]; ?>"><br>
+        		<label>Nome:</label><input id="alinhar" size="31" type="text" name="nome" value="<?php echo $dados["Nome"]; ?>"><br><br>
 
-    		Sexo: <input type="text" name="sexo" value="<?php echo $dados["Sexo"]; ?>"><br>
+        		<label>Sexo:</label><input id="alinhar" size="31" type="text" name="sexo" value="<?php echo $dados["Sexo"]; ?>"><br><br>
 
-    		CPF: <input type="text" name="cpf" value="<?php echo $dados["CPF"]; ?>"><br>
+        		<label>CPF:</label><input id="alinhar" size="31" type="text" name="cpf" value="<?php echo $dados["CPF"]; ?>"><br><br>
 
-    		Telefone: <input type="text" name="telefone" value="<?php echo $dados["Telefone"]; ?>"><br>
+        		<label>Telefone:</label><input id="alinhar" size="31" type="text" name="telefone" value="<?php echo $dados["Telefone"]; ?>"><br><br>
 
-    		Celular: <input type="text" name="celular" value="<?php echo $dados["Celular"]; ?>"><br>
+        		<label>Celular:</label><input id="alinhar" size="31" type="text" name="celular" value="<?php echo $dados["Celular"]; ?>"><br><br>
 
-    		Endereço: <input type="text" name="endereco" value="<?php echo $dados["Endereco"]; ?>"><br>
+        		<label>Endereço:</label><input id="alinhar" size="31" type="text" name="endereco" value="<?php echo $dados["Endereco"]; ?>"><br><br>
 
-    		CEP: <input type="text" name="cep" value="<?php echo $dados["CEP"]; ?>"><br>
+        		<label>CEP:</label><input id="alinhar" size="31" type="text" name="cep" value="<?php echo $dados["CEP"]; ?>"><br><br>
 
-    		Bairro: <input type="text" name="bairro" value="<?php echo $dados["Bairro"]; ?>"><br>
+        		<label>Bairro:</label><input id="alinhar" size="31" type="text" name="bairro" value="<?php echo $dados["Bairro"]; ?>"><br><br>
 
-    		Número: <input type="text" name="num" value="<?php echo $dados["Numero"]; ?>"><br>
+        		<label>Número:</label><input id="alinhar" size="31" type="text" name="num" value="<?php echo $dados["Numero"]; ?>"><br><br>
 
-            Email: <input type="text" name="email" value="<?php echo $dados["Email"]; ?>"><br>
+                <label>Email:</label><input id="alinhar" size="31" type="text" name="email" value="<?php echo $dados["Email"]; ?>"><br><br>
 
-            Status: <input type="text" name="status" value="<?php echo $dados["Status"]; ?>"><br><br>
+                <label>Status:</label>
+                <select name="status" id="combo_left">
+                    <option>Selecione</option>
+                    <option value="Ativo">Ativo</option>
+                    <option value="Desativo">Desativo</option>
+                </select><br><br>
+                <br><br>
 
-    		<input type="submit" name="cadastrar" value="Cadastrar">
+        		<input type="submit" name="cadastrar" value="Cadastrar"><br><br><br>
 
-    	</form>
-    </div>
+        	</form>
+        </div>
 
     <?php
         require "script.php";

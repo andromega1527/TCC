@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <html lang="pt">
     <meta charset="utf-8" />
     <title>Cadastro de Clientes</title>
 
@@ -15,71 +16,82 @@
         require "menu.php";
     ?>
 
-    <div id="formulario">
-    	<h1>Cadastro de Clientes</h1>
+    <div class="right_col" role="main">
+        <div id="formulario">
+            <h1>Cadastro de Clientes</h1><br><br>
 
-    	<form action="Res_Cad_Cliente.php" method="Post" name="formulario">
+            <form action="Res_Cad_Cliente.php" method="Post" name="formulario">
 
-    		Nome/Ultimo Nome*<input placeholder="Leonardo Rodrigues" type="text" name="nome" size="31"><br>
+            	<label>Nome/Ultimo*</label><input id="alinhar" placeholder="Leonardo Rodrigues" type="text" name="nome" size="31"><br><br>
 
-    		Sexo*<input placeholder="Masculino/Feminino" type="text" name="sexo" size="31"><br>
+            	<label>Sexo*</label><input id="alinhar" placeholder="Masculino/Feminino" type="text" name="sexo" size="31"><br><br>
 
-      		Data de nascimento*<input  style="color:#cdcdcd" type="date" name="data" size="31"><br>
+              	<label>Data de nascimento*</label><input id="alinhar" type="date" name="data" size="31"><br><br>
 
-    		CPF*<input placeholder="432.040.080-10" type="text" name="cpf" size="31"><br>
+            	<label>CPF*</label><input id="alinhar" placeholder="432.040.080-10" type="text" name="cpf" size="31"><br><br>
 
-    		CNPJ*<input placeholder="52.461.693/0001-13" type="text" name="cnpj" size="31"><br>
+            	<label>CNPJ*</label><input id="alinhar" placeholder="52.461.693/0001-13" type="text" name="cnpj" size="31"><br><br>
 
-    		Telefone*<input placeholder="(79)99219-4620" type="text" name="telefone" size="31"><br>
+            	<label>Telefone*</label><input id="alinhar" placeholder="(79)99219-4620" type="text" name="telefone" size="31"><br><br>
 
-    		Celular*<input placeholder="(79)3704-4267" type="text" name="celular" size="31"><br>
+            	<label>Celular*</label><input id="alinhar" placeholder="(79)3704-4267" type="text" name="celular" size="31"><br><br>
 
-            CEP*<input placeholder="49087-548" type="text" name="cep" size="31"><br>
+                <label>CEP*</label><input id="alinhar" placeholder="49087-548" type="text" name="cep" size="31"><br><br>
 
-    		Endereço*<input placeholder="Rua Santos Dumont II" type="text" name="endereco" size="31"><br>
+            	<label>Endereço*</label><input id="alinhar" placeholder="Rua Santos Dumont II" type="text" name="endereco" size="31"><br><br>
 
-    		Bairro*<input placeholder="São Marco" type="text" name="bairro" size="31"><br>
+            	<label>Bairro*</label><input id="alinhar" placeholder="São Marco" type="text" name="bairro" size="31"><br><br>
 
-    		Número*<input placeholder="110" type="text" name="num" size="31"><br>
+            	<label>Número*</label><input id="alinhar" placeholder="100" type="text" name="num" size="31"><br><br>
 
-    		e-mail/login*<input placeholder="salinasleonardo@live.com" type="text" name="email" size="31"><br>
+            	<label>e-mail/login*</label><input id="alinhar" placeholder="salinasleonardo@live.com" type="text" name="email" size="31"><br><br>
 
-    		Estado*<input type="text" name="estado" size="31">
-    		<select>
-    			<?php
-    				require("ConectBD.php");
+            	<label>Estado*</label>
+            	<select name="estado" id="combo_left">
+                    <option>Selecione</option>
 
-    				$resultado = mysqli_query($link, "SELECT * FROM Estado");
+            		<?php
+            			require("ConectBD.php");
 
-					while($cont = mysqli_fetch_array($resultado)) {
-                        $nome = $cont['Nome'];
+            			$resultado = mysqli_query($link, "SELECT Codigo_Estado, Nome FROM Estado");
 
-                        echo "<opition>$nome</opition>";
-                    }
+        				while($cont = mysqli_fetch_array($resultado)) {
+                            $cod = $cont['Codigo_Estado'];
+                            $nome = $cont['Nome'];
+                    ?>
 
-    			?>
-    		</select><br>
+                    <option value="<?php echo $cod; ?>"><?php echo $nome; ?></option>
 
-    		Cidade*<input type="text" name="cidade" size="31">
-    		<select>
-    			<?php
-                    require("ConectBD.php");
+                    <?php } ?>
 
-                    $resultado = mysqli_query($link, "SELECT * FROM Cidade ORDER BY 'Nome'");
+            		?>
+            	</select><br><br>
 
-                    while($cont = mysqli_fetch_array($resultado)) {
-                        $nome = $cont['Nome'];
+            	<label>Cidade*</label>
+            	<select name="cidade" id="combo_left">
+                    <option>Selecione</option>
 
-                        echo "<opition>$nome</opition>";
-                    }
+            		<?php
+                        require("ConectBD.php");
 
-                ?>
-    		</select><br><br>
+                        $resultado = mysqli_query($link, "SELECT Codigo_Cidade, Nome FROM Cidade");
 
-    		<input type="submit" name="cadastrar" value="Cadastrar"><br><br>
+                        while($cont = mysqli_fetch_array($resultado)) {
+                            $cod = $cont['Codigo_Cidade'];
+                            $nome = $cont['Nome'];
+                    ?>
+                    
+                    <option value="<?php echo $cod; ?>"><?php echo $nome; ?></option>
 
-    	</form>
-    </div>
+                    <?php } ?>
+
+                    ?>
+            	</select><br><br>
+
+            	<input type="submit" name="cadastrar" value="Cadastrar"><br><br><br>
+
+            </form>
+        </div>
 
     <?php
         require "script.php";

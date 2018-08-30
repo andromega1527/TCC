@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<html lang="pt">
 	<meta charset="utf-8" />
 	<title>Histórico de Alteração de Dados</title>
 
@@ -14,7 +15,7 @@
 	require "menu.php";
 ?>
 
-
+<div class="right_col" role="main">
 	<div id="lista">
 		<h1>Histórico de Alteração de Dados</h1><br>
 

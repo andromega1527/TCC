@@ -17,8 +17,9 @@
 
 	$sqlInsertF = "INSERT INTO Funcionario (Nome, Sexo, CPF, Telefone, Celular, Endereco, CEP, Bairro, Numero, Email, Status) VALUES ('$nome', '$sexo', '$cpf', '$telefone', '$celular', '$endereco', '$cep', '$bairro', '$numero', '$email', '$status')";
 
-	mysqli_query($link, $sqlInsertF) or die ("Não foi possivel inserir no Banco F!!! :(");
+	mysqli_query($link, $sqlInsertF) or die ("Não foi possivel inserir no Banco!!! :(");
 
-	echo "Dados cadastrados com sucesso!!! :)";
-	echo "<br><br><a href='Cad_Funcionario.php'>Voltar</a>";
+	mysqli_close();
+
+	header("Location:Cad_Funcionario.php");
 ?>

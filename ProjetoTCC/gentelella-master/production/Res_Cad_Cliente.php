@@ -16,20 +16,13 @@
 
 	require("ConectBD.php");
 
-	$codC = mysqli_query($link, "SELECT Codigo_Cliente FROM cliente");
-	$codE = mysqli_query($link, "SELECT Codigo_Estado FROM estado");
-	$codCi = mysqli_query($link, "SELECT Codigo_Cidade FROM cidade");
+	$cod = mysqli_query($link, "SELECT Codigo_Cliente FROM Cliente");
 
-	$sqlInsertC = "INSERT INTO cliente (Nome, Sexo, Data_de_Nascimento, CPF, CNPJ, Telefone, Celular, Endereco, CEP, Bairro, Numero, Email) VALUES ('$nome', '$sexo', '$data', '$cpf', '$cnpj', '$telefone', '$celular', '$endereco', '$cep', '$bairro', '$numero', '$email')";
+	$sqlInsert = "INSERT INTO cliente (Nome, Sexo, Data_de_Nascimento, CPF, CNPJ, Telefone, Celular, Endereco, CEP, Bairro, Numero, Email, Estado, Cidade) VALUES ('$nome', '$sexo', '$data', '$cpf', '$cnpj', '$telefone', '$celular', '$endereco', '$cep', '$bairro', '$numero', '$email', '$estado', '$cidade')";
 
-	$sqlInsertE = "INSERT INTO estado (Nome) VALUES ('$estado')";
+	mysqli_query($link, $sqlInsert) or die ("Não foi possivel inserir no Banco!!! :(");
 
-	$sqlInsertCi = "INSERT INTO cidade (Nome) VALUES ('$cidade')";
+	mysqli_close();
 
-	mysqli_query($link, $sqlInsertC) or die ("Não foi possivel inserir no Banco C!!! :(");
-	mysqli_query($link, $sqlInsertE) or die ("Não foi possivel inserir no Banco E!!! :(");
-	mysqli_query($link, $sqlInsertCi) or die ("Não foi possivel inserir no Banco Ci!!! :(");
-
-	echo "Dados cadastrados com sucesso!!! :)";
-	echo "<br><br><a href='Cad_Cliente.php'>Voltar</a>";
+	header("Location:Cad_Cliente.php");
 ?>

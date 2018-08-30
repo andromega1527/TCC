@@ -9,7 +9,9 @@
 
 table {
 	text-align: center;
-	border: "2px";
+	border: 2px;
+	overflow: auto;
+	padding: 2000px;
 }
 
 td {
@@ -23,6 +25,90 @@ td {
 }
 
 #formulario {
-	text-align: center;
+	text-align: left;
+	padding-left: 320px;
 	margin: 2px;
+}
+
+label {
+	color: black;
+}
+
+#scroll { 
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height: 200px;
+    white-space:nowrap;
+    scroll-behavior: smooth-scroll;
+
+}
+
+#alinhar {
+	position: absolute;
+	right: 340px;
+}
+
+#alinhar_combo {
+	position: absolute;
+	right: 250px
+}
+
+select{
+	position: absolute;
+	right: 285px;
+}
+
+input[type="date"] {
+	color:#cdcdcd;
+}
+
+#modal {
+	background: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.modal-box {
+	background: #FFF;
+	width: 60%;
+	height: 300px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -20%;
+	margin-top: -150px;
+}
+
+.fechar {
+	padding: 5px 10px;
+	border: 1px solid #CCC;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.fechar:hover {
+	color: #8B0000;
+	border-color: #666;
+	background: #FF4040;
+}
+
+#borda {
+	padding: 18px 10px;
+	border: 1px solid #CCC;
+	bottom: 3px;
+}
+
+#combo_left {
+	left: 683px
+}
+
+#combo_orc {
+	left: 400px;
 }
