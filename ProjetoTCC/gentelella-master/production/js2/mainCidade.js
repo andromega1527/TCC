@@ -14,7 +14,11 @@ btnElement.onclick = function() {
 			var linkEdit = document.createElement('a');
 			linkEdit.setAttribute('href', 'Edit_Cidade.php?cod=' + codValue);
 			var linkDelet = document.createElement('a');
+			//linkDelet.setAttribute('id', 'btn-delet');
 			linkDelet.setAttribute('href', 'Res_Delet_Cidade.php?cod=' + codValue);
+			//var input = document.createElement('input');
+			//input.setAttribute('type', 'hidden');
+			//input.setAttribute('value', codValue);
 			var txtEditar = document.createTextNode('Editar');
 			var txtDeletar = document.createTextNode('Deletar');
 
@@ -26,10 +30,22 @@ btnElement.onclick = function() {
 			btnElementDelet.appendChild(linkDelet);
 			linkEdit.appendChild(txtEditar);
 			linkDelet.appendChild(txtDeletar);
+			//linkDelet.appendChild(input);
 
 		} else {
 			break;
 		}
 	}
-	
+
+	//var linkDelets = document.querySelector('a#btn-delet');
+
+	//linkDelets.onclick = function() {
+		//var valor = document.querySelector('a#btn-delet' 'input');
+		//var v = valor.value;
+		//var modal = document.querySelector('div#modal');
+		//var linka = document.querySelector('a.link-delet'); 
+		//linka.setAttribute('href', 'Res_Delet_Cidade.php?cod=' + v);
+		//modal.setAttribute('style', 'display: block');
+	//}
 }
+

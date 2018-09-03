@@ -22,7 +22,7 @@
 
             <form action="Res_Cad_Cliente.php" method="Post" name="formulario">
 
-            	<label>Nome/Ultimo*</label><input id="alinhar" placeholder="Leonardo Rodrigues" type="text" name="nome" size="31"><br><br>
+            	<label>Nome/Ultimo*</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="nome" size="31"><br><br>
 
             	<label>Sexo*</label><input id="alinhar" placeholder="Masculino/Feminino" type="text" name="sexo" size="31"><br><br>
 

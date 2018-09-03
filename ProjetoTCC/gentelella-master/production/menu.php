@@ -1,7 +1,22 @@
-<?php
-	$endereço = $_SERVER['REQUEST_URI'];
+<?php 
+/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
+simplesmente não fazer o login e digitar na barra de endereço do seu navegador 
+o caminho para a página principal do site (sistema), burlando assim a obrigação de 
+fazer um login, com isso se ele não estiver feito o login não será criado a session, 
+então ao verificar que a session não existe a página redireciona o mesmo
+para a index.php.*/
+session_start();
 
-	$menu = '
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:..\TelaLogin\index.php');
+}
+   
+$logado = $_SESSION['login'];
+?>
+
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
@@ -21,7 +36,7 @@
 
             <div class="profile_info">
               <span>Bem vindo,</span>
-              <h2>Usuario_B37</h2>
+              <h2><?php echo $_SESSION['nome']; ?></h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -36,7 +51,13 @@
                 <li><a><i class="fa fa-home"></i> Menu <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="historico.php">Historico de Alteraçoes</a></li>
+
+                    <?php 
+                      if ($_SESSION['permissao'] == 'Administrador') {
+                        echo '<li><a href="historico.php">Historico de Alteraçoes</a></li>';
+                      }
+                    ?>
+                    
                   </ul>
                 </li>
                 <li><a><i class="fa fa-edit"></i> Orçamento <span class="fa fa-chevron-down"></span></a>
@@ -53,13 +74,20 @@
                     <li><a href="Cad_Cliente.php">Cadastro de Clientes</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-users"></i> Funcionario <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="List_Funcionarios_Ativos.php">Lista de Funcionarios Ativos</a></li>
-                    <li><a href="List_Funcionarios.php">Lista de Funcionarios</a></li>
-                    <li><a href="Cad_Funcionario.php">Cadastro de Funcionarios</a></li>
-                  </ul>
-                </li>
+
+                <?php
+                  if ($_SESSION['permissao'] == 'Administrador') {
+                    echo '<li><a><i class="fa fa-users"></i> Funcionario <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li><a href="List_Funcionarios_Ativos.php">Lista de Funcionarios Ativos</a></li>
+                              <li><a href="List_Funcionarios.php">Lista de Funcionarios</a></li>
+                              <li><a href="Cad_Funcionario.php">Cadastro de Funcionarios</a></li>
+                            </ul>
+                          </li>';
+                  }
+                  
+                ?>
+
                 <li><a><i class="fa fa-globe"></i> Estado <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="List_Estados.php">Lista Estados</a></li>
@@ -107,12 +135,12 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">Usuario_B37
+                  <img src="images/img.jpg" alt=""><?php echo $_SESSION['nome']; ?>
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="perfil.php"> Perfil</a></li>
-                  <li><a href="../TelaLogin"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  <li><a href="clo.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                 </ul>
               </li>
 
@@ -184,7 +212,4 @@
           </nav>
         </div>
       </div>
-      <!-- /top navigation -->';
-
-	echo $menu;
-?>
+      <!-- /top navigation -->

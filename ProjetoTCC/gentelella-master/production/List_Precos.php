@@ -30,7 +30,7 @@
 
 			<table class="tabela" align="center">
 				<thead id="tabela">
-					<tr id="coluna_Principal">
+					<tr id="coluna_Principal" style="color: black">
 						<td>Preço por Metro</td>
 						<td>Cidade</td>
 						<td>Estado</td>

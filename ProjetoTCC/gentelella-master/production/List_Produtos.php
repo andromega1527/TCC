@@ -30,7 +30,7 @@
 
 			<table class="tabela" align="center">
 				<thead id="tabela">
-					<tr id="coluna_Principal">
+					<tr id="coluna_Principal" style="color: black">
 						<td>Descrição do Produto</td>
 						<td>Preço Unitario</td>
 					</tr>

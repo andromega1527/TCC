@@ -27,7 +27,7 @@
 		<div align="center">
 			<table class="tabela" align="center">
 				<thead>
-					<tr>
+					<tr style="color: black">
 						<td>Status</td>
 						<td>Cliente</td>
 						<td>Funcionário</td>

@@ -37,9 +37,9 @@
         	<form action="Res_Edit_Produto.php" method="Post" name="formulario">
                 <input type="hidden" name="cod" value="<?php echo $dados["Codigo_Produto"]; ?>">
 
-        		<label>Descrição:</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="descricao" size="31" value="<?php echo $dados['Descricao']; ?>"><br><br>
+        		<label>Descrição*</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="descricao" size="31" value="<?php echo $dados['Descricao']; ?>"><br><br>
 
-                <label>Preço Unitario:</label>
+                <label>Preço Unitario*</label>
                 <select name="preco" id="combo_left">
                     <option>Selecione</option>
 

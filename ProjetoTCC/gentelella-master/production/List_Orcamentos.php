@@ -19,7 +19,6 @@
 <div class="right_col" id="scroll" role="main">
 	<div id="lista">
 		<h1>Lista de Orçamentos</h1><br>
-
 		<form method="Post" action="">
 			<input type="text" name="pesquisa">
 			<input type="submit" value="Pesquisar">
@@ -28,7 +27,7 @@
 		<div align="center">
 			<table class="tabela" border="2px" align="center">
 				<thead>
-					<tr>
+					<tr style="color: black">
 						<td>Status</td>
 						<td>Cliente</td>
 						<td>Funcionário</td>

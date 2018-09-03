@@ -38,9 +38,9 @@
         	<form action="Res_Edit_Preco.php" method="Post" name="formulario">
                 <input type="hidden" name="cod" value="<?php echo $dados["Codigo_Preco"]; ?>">
 
-        		<label>Preço por Metro:</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="preco" size="31" value="<?php echo $dados['Preco_por_Metro']; ?>"><br><br>
+        		<label>Preço por Metro*</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="preco" size="31" value="<?php echo $dados['Preco_por_Metro']; ?>"><br><br>
 
-                <label>Estado</label>
+                <label>Estado*</label>
                 <select name="estado" id="combo_left">
                     <option>Selecione</option>
 
@@ -61,7 +61,7 @@
                     ?>
                 </select><br><br>
 
-                <label>Cidade</label>
+                <label>Cidade*</label>
                 <select name="cidade" id="combo_left">
                     <option>Selecione</option>
 

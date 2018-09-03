@@ -30,8 +30,8 @@
 
 			<table class="tabela" align="center">
 				<thead id="tabela">
-					<tr id="coluna_Principal">
-						<td>Nome</td>
+					<tr id="coluna_Principal" style="color: black">
+						<td>Nome dos Estados</td>
 						<td>Descrição</td>
 					</tr>
 				</thead>

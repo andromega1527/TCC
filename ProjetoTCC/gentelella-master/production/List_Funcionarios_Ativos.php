@@ -29,7 +29,7 @@
 
 			<table class="tabela" align="center">
 				<thead id="tabela">
-					<tr id="coluna_Principal">
+					<tr id="coluna_Principal" style="color: black">
 						<td>Nome</td>
 						<td>CPF</td>
 						<td>Sexo</td>
@@ -40,7 +40,9 @@
 						<td>Bairro</td>
 						<td>Número</td>
 						<td>Email</td>
+						<td>Senha</td>
 						<td>Status</td>
+						<td>Permissão</td>
 					</tr>
 				</thead>
 
@@ -73,7 +75,9 @@
 							$bairro = $cont['Bairro'];
 							$numero = $cont['Numero'];
 							$email = $cont['Email'];
+							$senha = $cont['Senha'];
 							$status = $cont['Status'];
+							$permissao = $cont['Permissao'];
 
 							echo "<tr id=\"edit". $c++ ."\">
 									<input type=\"hidden\" name=\"cod\" value=\"$cod\">
@@ -87,7 +91,9 @@
 									<td>$bairro</td>
 									<td>$numero</td>
 									<td>$email</td>
+									<td>$senha</td>
 									<td>$status</td>
+									<td>$permissao</td>
 					  			</tr>";
 						}
 					?>

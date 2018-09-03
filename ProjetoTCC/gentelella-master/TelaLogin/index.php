@@ -15,6 +15,16 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
+
+	<?php
+		session_start();
+
+		if((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true))
+		{
+		  header('location:..\production\index.php');
+		}
+	?>
+
 	<body>
 
 		<!-- Header -->
@@ -26,17 +36,17 @@
 
 		<!-- Signup Form -->
 			<form id="signup-form" method="Post" action="ope.php">
-				<div><input style="position: absolute;" type="email" name="email" id="email" placeholder="Email" /></div><br>
-				<div><input style="position: absolute; bottom: -50px; left: 1px" type="password" name="senha" id="senha" placeholder="Senha" /></div><br>
+				<div><input style="position: absolute;" type="email" name="login" id="email" placeholder="Email" /></div>
+				<div><input style="position: absolute; bottom: -50px; left: 1px" type="password" name="senha" id="senha" placeholder="Senha" /></div>
 
-				<div><input style="position: absolute; bottom: -108px; left: 1px" type="submit" name="Entrar"></div>
+				<div><input style="position: absolute; bottom: -108px; left: 1px" type="submit" name="Entrar" value="Entrar"></div>
 			</form>
 		<!-- Footer -->
 			<footer id="footer">
-				<ul class="icons">
+				<!--<ul class="icons">
 					
-					<li><a href="mailto:careca-calhas@hotmail.com" class="icon fa-envelope-o"><span class="label">Email</span>   careca-calhas@hotmail.com</a></li>
-				</ul>
+					<li><a href="mailto:careca-calhas@hotmail.com" class="icon fa-envelope-o"><span class="label">Email</span>  careca-calhas@hotmail.com</a></li>
+				</ul> -->
 				<ul class="copyright">
 					<li></li><li><a href="http://html5up.net"></a></li>
 				</ul>

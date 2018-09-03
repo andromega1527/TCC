@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Ago-2018 às 22:25
+-- Generation Time: 30-Ago-2018 às 22:07
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -34,15 +34,6 @@ CREATE TABLE `cidade` (
   `Descricao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `cidade`
---
-
-INSERT INTO `cidade` (`Codigo_Cidade`, `Nome`, `Descricao`) VALUES
-(3, 'v', ''),
-(4, 'b', ''),
-(5, 'c', '');
-
 -- --------------------------------------------------------
 
 --
@@ -67,26 +58,6 @@ CREATE TABLE `cliente` (
   `Cidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `cliente`
---
-
-INSERT INTO `cliente` (`Codigo_Cliente`, `Nome`, `Sexo`, `Data_de_Nascimento`, `CPF`, `CNPJ`, `Telefone`, `Celular`, `Endereco`, `CEP`, `Bairro`, `Numero`, `Email`, `Estado`, `Cidade`) VALUES
-(3, 'v', 'a', '2018-08-08', 'a', 'a', 'a', ' a', 'a', 'a', 'a', 1, 'a', 3, 3),
-(4, 'b', 'b', '2018-08-03', 'b', 'b', 'b', ' b', 'b', 'b', 'b', 2, 'b', 4, 4),
-(5, 'ae', 'm', '2018-08-08', 'a', 'a', 'a', ' a', 'a', 'a', 'a', 1, 'a', 5, 5);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `desconto`
---
-
-CREATE TABLE `desconto` (
-  `Codigo_Desconto` int(11) NOT NULL,
-  `de_Quanto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 -- --------------------------------------------------------
 
 --
@@ -98,15 +69,6 @@ CREATE TABLE `estado` (
   `Nome` varchar(255) NOT NULL,
   `Descricao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `estado`
---
-
-INSERT INTO `estado` (`Codigo_Estado`, `Nome`, `Descricao`) VALUES
-(3, 'v', ''),
-(4, 'b', ''),
-(5, 'e', '');
 
 -- --------------------------------------------------------
 
@@ -125,18 +87,10 @@ CREATE TABLE `funcionario` (
   `Bairro` varchar(255) NOT NULL,
   `CEP` varchar(255) NOT NULL,
   `Numero` int(11) NOT NULL,
-  `Email` varchar(20) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Senha` varchar(50) NOT NULL,
   `Status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `funcionario`
---
-
-INSERT INTO `funcionario` (`Codigo_Funcionario`, `Nome`, `CPF`, `Sexo`, `Telefone`, `Celular`, `Endereco`, `Bairro`, `CEP`, `Numero`, `Email`, `Status`) VALUES
-(3, 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 1, 'i', 'desativo'),
-(4, 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 2, 'u', 'ativo'),
-(5, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 3, 'a', 'Ativo');
 
 -- --------------------------------------------------------
 
@@ -151,18 +105,9 @@ CREATE TABLE `orcamento` (
   `Funcionario` int(11) NOT NULL,
   `Data_Emissao` varchar(10) NOT NULL,
   `Hora_Emissao` varchar(5) NOT NULL,
-  `Desconto` decimal(10,0) NOT NULL,
-  `Parcelamento` int(11) NOT NULL,
   `SubTotal` decimal(10,0) NOT NULL,
   `Total` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `orcamento`
---
-
-INSERT INTO `orcamento` (`Codigo_Orcamento`, `Status`, `Cliente`, `Funcionario`, `Data_Emissao`, `Hora_Emissao`, `Desconto`, `Parcelamento`, `SubTotal`, `Total`) VALUES
-(1, 'dasdas', 2323, 232, 'sadas', 'asda', '123', 2342, '345345', '345345');
 
 -- --------------------------------------------------------
 
@@ -173,32 +118,7 @@ INSERT INTO `orcamento` (`Codigo_Orcamento`, `Status`, `Cliente`, `Funcionario`,
 CREATE TABLE `orcamento_detalhes` (
   `Codigo_Orcamento` int(11) NOT NULL,
   `Codigo_Produto` int(11) NOT NULL,
-  `Quantidade` int(11) NOT NULL,
-  `Preco` decimal(10,0) NOT NULL,
-  `Total` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `parcelamento`
---
-
-CREATE TABLE `parcelamento` (
-  `Codigo_Parcelamento` int(11) NOT NULL,
-  `Quantas_Vezes` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `parcelamento_detalhes`
---
-
-CREATE TABLE `parcelamento_detalhes` (
-  `Codigo_Parcelamento` int(11) NOT NULL,
-  `Data_Emissao` date NOT NULL,
-  `Preco_Parcela` decimal(10,0) NOT NULL
+  `Quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -208,21 +128,10 @@ CREATE TABLE `parcelamento_detalhes` (
 --
 
 CREATE TABLE `preco` (
-  `Codigo_Produto` int(11) NOT NULL,
-  `Preco_Metro` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `preco_detalhes`
---
-
-CREATE TABLE `preco_detalhes` (
-  `Codigo_Produto` int(11) NOT NULL,
+  `Codigo_Preco` int(11) NOT NULL,
+  `Preco_por_Metro` decimal(10,0) NOT NULL,
   `Cidade` int(11) NOT NULL,
-  `Estado` int(11) NOT NULL,
-  `Preco_por_Metro` decimal(10,0) NOT NULL
+  `Estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -234,7 +143,7 @@ CREATE TABLE `preco_detalhes` (
 CREATE TABLE `produto` (
   `Codigo_Produto` int(11) NOT NULL,
   `Descricao` varchar(255) NOT NULL,
-  `Preco_Unitario` decimal(10,0) NOT NULL
+  `Preco_Unitario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -251,13 +160,9 @@ ALTER TABLE `cidade`
 -- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`Codigo_Cliente`);
-
---
--- Indexes for table `desconto`
---
-ALTER TABLE `desconto`
-  ADD PRIMARY KEY (`Codigo_Desconto`);
+  ADD PRIMARY KEY (`Codigo_Cliente`),
+  ADD KEY `fk_cidade` (`Cidade`),
+  ADD KEY `fk_estado` (`Estado`);
 
 --
 -- Indexes for table `estado`
@@ -275,43 +180,31 @@ ALTER TABLE `funcionario`
 -- Indexes for table `orcamento`
 --
 ALTER TABLE `orcamento`
-  ADD PRIMARY KEY (`Codigo_Orcamento`);
+  ADD PRIMARY KEY (`Codigo_Orcamento`),
+  ADD KEY `fk_cliente` (`Cliente`),
+  ADD KEY `fk_funcionario` (`Funcionario`);
 
 --
 -- Indexes for table `orcamento_detalhes`
 --
 ALTER TABLE `orcamento_detalhes`
-  ADD PRIMARY KEY (`Codigo_Orcamento`,`Codigo_Produto`);
-
---
--- Indexes for table `parcelamento`
---
-ALTER TABLE `parcelamento`
-  ADD PRIMARY KEY (`Codigo_Parcelamento`);
-
---
--- Indexes for table `parcelamento_detalhes`
---
-ALTER TABLE `parcelamento_detalhes`
-  ADD PRIMARY KEY (`Codigo_Parcelamento`);
+  ADD PRIMARY KEY (`Codigo_Orcamento`,`Codigo_Produto`),
+  ADD KEY `fk_produto` (`Codigo_Produto`);
 
 --
 -- Indexes for table `preco`
 --
 ALTER TABLE `preco`
-  ADD PRIMARY KEY (`Codigo_Produto`);
-
---
--- Indexes for table `preco_detalhes`
---
-ALTER TABLE `preco_detalhes`
-  ADD PRIMARY KEY (`Codigo_Produto`);
+  ADD PRIMARY KEY (`Codigo_Preco`),
+  ADD KEY `fk_preco_cidade` (`Cidade`),
+  ADD KEY `fk_preco_estado` (`Estado`);
 
 --
 -- Indexes for table `produto`
 --
 ALTER TABLE `produto`
-  ADD PRIMARY KEY (`Codigo_Produto`);
+  ADD PRIMARY KEY (`Codigo_Produto`),
+  ADD KEY `fk_preco` (`Preco_Unitario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -321,31 +214,81 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `Codigo_Cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Codigo_Cidade` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `Codigo_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Codigo_Cliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `Codigo_Estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Codigo_Estado` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `Codigo_Funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Codigo_Funcionario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orcamento`
 --
 ALTER TABLE `orcamento`
-  MODIFY `Codigo_Orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo_Orcamento` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `preco`
+--
+ALTER TABLE `preco`
+  MODIFY `Codigo_Preco` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `Codigo_Produto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `cliente`
+--
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `fk_cidade` FOREIGN KEY (`Cidade`) REFERENCES `cidade` (`Codigo_Cidade`),
+  ADD CONSTRAINT `fk_estado` FOREIGN KEY (`Estado`) REFERENCES `estado` (`Codigo_Estado`);
+
+--
+-- Limitadores para a tabela `orcamento`
+--
+ALTER TABLE `orcamento`
+  ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`Codigo_Cliente`),
+  ADD CONSTRAINT `fk_funcionario` FOREIGN KEY (`Funcionario`) REFERENCES `funcionario` (`Codigo_Funcionario`);
+
+--
+-- Limitadores para a tabela `orcamento_detalhes`
+--
+ALTER TABLE `orcamento_detalhes`
+  ADD CONSTRAINT `fk_orcamento` FOREIGN KEY (`Codigo_Orcamento`) REFERENCES `orcamento` (`Codigo_Orcamento`),
+  ADD CONSTRAINT `fk_produto` FOREIGN KEY (`Codigo_Produto`) REFERENCES `produto` (`Codigo_Produto`);
+
+--
+-- Limitadores para a tabela `preco`
+--
+ALTER TABLE `preco`
+  ADD CONSTRAINT `fk_preco_cidade` FOREIGN KEY (`Cidade`) REFERENCES `cidade` (`Codigo_Cidade`),
+  ADD CONSTRAINT `fk_preco_estado` FOREIGN KEY (`Estado`) REFERENCES `estado` (`Codigo_Estado`);
+
+--
+-- Limitadores para a tabela `produto`
+--
+ALTER TABLE `produto`
+  ADD CONSTRAINT `fk_preco` FOREIGN KEY (`Preco_Unitario`) REFERENCES `preco` (`Codigo_Preco`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

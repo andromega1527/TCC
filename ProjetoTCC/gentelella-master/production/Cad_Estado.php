@@ -22,9 +22,9 @@
 
         	<form action="Res_Cad_Estado.php" method="Post" name="formulario">
 
-        		<label>Nome:</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="nome" size="31"><br><br>
+        		<label>Nome do Estado*</label><input id="alinhar" placeholder="São Paulo - SP" type="text" name="nome" size="31"><br><br>
 
-        		<label>Descrição:</label><input id="alinhar" placeholder="Masculino/Feminino" type="text" name="descricao" size="31"><br><br>
+        		<label>Descrição*</label><input id="alinhar" type="text" name="descricao" size="31"><br><br>
 
         		<input type="submit" name="cadastrar" value="Cadastrar"><br><br><br>
 

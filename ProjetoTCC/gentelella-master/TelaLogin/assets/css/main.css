@@ -1059,9 +1059,6 @@
 			width: 18em;
 		}
 
-		#signup-form > * {
-			margin: 0 0 0 1em;
-		}
 
 		#signup-form > :first-child {
 			margin: 0 0 0 0;

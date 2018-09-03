@@ -3,7 +3,7 @@ $(document).ready(function(e) {
 		$('#modal').fadeIn(500);
 	});
 
-	$('.fechar, #modal').click(function(event) {
+	$('.fechar, #modal, .sla, #cancel').click(function(event) {
 		if(event.target !== this) {
 			return;
 		}

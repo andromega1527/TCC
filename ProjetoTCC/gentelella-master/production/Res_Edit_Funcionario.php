@@ -10,12 +10,37 @@
 	$bairro = $_POST['bairro'];
 	$numero = $_POST['num'];
 	$email = $_POST['email'];
+	$senha = $_POST['senha'];
 	$status = $_POST['status'];
+	$permissao = $_POST['permissao'];
 
 	/* Conexão */
 	require("ConectBD.php");
 
-	mysqli_query($link, "UPDATE Funcionario SET Nome = '$nome', Sexo = '$sexo', CPF = '$cpf', Telefone = '$telefone', Celular = ' $celular', Endereco = '$endereco', CEP = '$cep', Bairro = '$bairro', Numero = '$numero', Email = '$email', Status = '$status' WHERE Codigo_Funcionario = $cod") or die ("Não foi possivel inserir no Banco!!! :(");
+
+	// Registro --------------------------------------------------------------------
+	// ----------------------------------------------------------------------------
+	session_start();
+
+	$sqlSelect = "SELECT * FROM Funcionario WHERE Codigo_Funcionario = '$cod'";
+
+	$resultado = mysqli_query($link, $sqlSelect);
+
+	while ($cont = mysqli_fetch_array($resultado)) {
+		$nomeR = $cont['Nome'];
+	}
+
+	$funcionario = $_SESSION['cod'];
+	$data = date('d/m/Y');
+	$campo = $nomeR;
+	$descricao = "Dados alterados na tabela: Funcionario, Nome: $campo";
+
+	mysqli_query($link, "INSERT INTO Registro (Funcionario, Data, Descricao) VALUES ('$funcionario', '$data', '$descricao')") or die ("Erro ao cadastrar Registro!!!");
+	// ----------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------
+
+
+	mysqli_query($link, "UPDATE Funcionario SET Nome = '$nome', Sexo = '$sexo', CPF = '$cpf', Telefone = '$telefone', Celular = ' $celular', Endereco = '$endereco', CEP = '$cep', Bairro = '$bairro', Numero = '$numero', Email = '$email', Senha = '$senha', Status = '$status', Permissao = '$permissao' WHERE Codigo_Funcionario = $cod") or die ("Não foi possivel inserir no Banco!!! :(");
 
 	mysqli_close();
 

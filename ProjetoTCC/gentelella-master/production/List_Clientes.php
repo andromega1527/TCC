@@ -31,7 +31,7 @@
 
 			<table class="tabela" border="2px" align="center">
 				<thead id="tabela">
-					<tr id="coluna_Principal">
+					<tr id="coluna_Principal" style="color: black">
 						<td>Nome</td>
 						<td>Sexo</td>
 						<td>Data de Nascimento</td>

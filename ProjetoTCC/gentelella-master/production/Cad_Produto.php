@@ -22,7 +22,7 @@
 
         	<form action="Res_Cad_Produto.php" method="Post" name="formulario">
 
-        		<label>Descrição:</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="descricao" size="31"><br><br>
+        		<label>Produto:</label><input id="alinhar" placeholder="Calha de alumínio" type="text" name="descricao" size="31"><br><br>
 
         		<label>Preço Unitario:</label>
                 <select name="preco" id="combo_left">

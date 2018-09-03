@@ -11,6 +11,20 @@
 
 	mysqli_query($link, $sqlInsert) or die ("Não foi possivel inserir no Banco!!! :(");
 
+
+	// Registro --------------------------------------------------------------------
+	// ----------------------------------------------------------------------------
+	session_start();
+
+	$funcionario = $_SESSION['cod'];
+	$data = date('d/m/Y');
+	$descricao = "Dados cadastrados na tabela: Preço";
+
+	mysqli_query($link, "INSERT INTO Registro (Funcionario, Data, Descricao) VALUES ('$funcionario', '$data', '$descricao')") or die ("Erro ao cadastrar Registro!!!");
+	// ----------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------
+	
+
 	mysqli_close();
 
 	header("Location:Cad_Preco.php");

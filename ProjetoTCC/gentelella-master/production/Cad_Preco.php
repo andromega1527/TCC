@@ -22,7 +22,7 @@
 
         	<form action="Res_Cad_Preco.php" method="Post" name="formulario">
 
-        		<label>Preço por Metro:</label><input id="alinhar" placeholder="Robsom Marques" type="text" name="preco" size="31"><br><br>
+        		<label>Preço por Metro:</label><input id="alinhar" placeholder="120,00$" type="text" name="preco" size="31"><br><br>
 
         		<label>Estado</label>
                 <select name="estado" id="combo_left">

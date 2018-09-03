@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Ago-2018 às 17:26
+-- Generation Time: 03-Set-2018 às 03:59
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -34,6 +34,17 @@ CREATE TABLE `cidade` (
   `Descricao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `cidade`
+--
+
+INSERT INTO `cidade` (`Codigo_Cidade`, `Nome`, `Descricao`) VALUES
+(4, 'Rio de Janeiro', 'Cidade Grande'),
+(8, 'SÃ£o Paulo', 'Cidade grande'),
+(10, 'SÃ£o Paulo', 'Cidade grande'),
+(11, 'SÃ£o Paulo', 'Cidade grande'),
+(12, 'oooooooo', 'Cidade longe');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +69,13 @@ CREATE TABLE `cliente` (
   `Cidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`Codigo_Cliente`, `Nome`, `Sexo`, `Data_de_Nascimento`, `CPF`, `CNPJ`, `Telefone`, `Celular`, `Endereco`, `CEP`, `Bairro`, `Numero`, `Email`, `Estado`, `Cidade`) VALUES
+(1, 'Leonardo', 'Masculino', '2018-09-11', '534534534', '', '75675675', '567567567', 'reterterte', '6456456', 'ertertert', 43534, '666', 3, 8);
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +87,15 @@ CREATE TABLE `estado` (
   `Nome` varchar(255) NOT NULL,
   `Descricao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `estado`
+--
+
+INSERT INTO `estado` (`Codigo_Estado`, `Nome`, `Descricao`) VALUES
+(3, 'Rio de Janeiro', 'Cidade longe'),
+(4, 'SÃ£o Paulo', 'Meu Estado'),
+(5, 'Minas Gerais', 'fica longe');
 
 -- --------------------------------------------------------
 
@@ -87,9 +114,20 @@ CREATE TABLE `funcionario` (
   `Bairro` varchar(255) NOT NULL,
   `CEP` varchar(255) NOT NULL,
   `Numero` int(11) NOT NULL,
-  `Email` varchar(20) NOT NULL,
-  `Status` varchar(10) NOT NULL
+  `Email` varchar(50) NOT NULL,
+  `Senha` varchar(50) NOT NULL,
+  `Status` varchar(10) NOT NULL,
+  `Permissao` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`Codigo_Funcionario`, `Nome`, `CPF`, `Sexo`, `Telefone`, `Celular`, `Endereco`, `Bairro`, `CEP`, `Numero`, `Email`, `Senha`, `Status`, `Permissao`) VALUES
+(3, 'André Leonam', '234232342', 'Masculino', '42342342', '23423423', 'Rua 6', 'Figueira', '3423423423', 323, 'andrejc2008@hotmail.com', 'chicaradecha123', 'Ativo', 'Administrador'),
+(4, 'Mario', '242342342', 'Masculino', '234234234', '2342342342', 'sdfsdfsdf', 'dsfsdfsd', '456456456', 232, 'leonardo@gmail.com', '888', 'Ativo', 'Usuario'),
+(5, 'Mario', '242342342', 'Masculino', '234234234', '2342342342', 'sdfsdfsdf', 'dsfsdfsd', '456456456', 232, 'manoelprofessordeartes@hotmail.com', '566', 'Ativo', 'Usuario');
 
 -- --------------------------------------------------------
 
@@ -133,6 +171,15 @@ CREATE TABLE `preco` (
   `Estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `preco`
+--
+
+INSERT INTO `preco` (`Codigo_Preco`, `Preco_por_Metro`, `Cidade`, `Estado`) VALUES
+(2, '44', 10, 4),
+(3, '66', 4, 5),
+(4, '77', 4, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -144,6 +191,68 @@ CREATE TABLE `produto` (
   `Descricao` varchar(255) NOT NULL,
   `Preco_Unitario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`Codigo_Produto`, `Descricao`, `Preco_Unitario`) VALUES
+(1, '50 metros de calha', 2),
+(4, '53 metros', 3),
+(5, '55', 4),
+(6, 'Meu estado', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `registro`
+--
+
+CREATE TABLE `registro` (
+  `Codigo_Registro` int(11) NOT NULL,
+  `Funcionario` int(11) NOT NULL,
+  `Data` varchar(10) NOT NULL,
+  `Descricao` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `registro`
+--
+
+INSERT INTO `registro` (`Codigo_Registro`, `Funcionario`, `Data`, `Descricao`) VALUES
+(6, 3, '', 'Dados deletados na tabela: Cidade, Nome: b'),
+(7, 3, '', 'Dados cadastrados na tabela: Estado, Nome: SÃ£o Paulo'),
+(8, 3, '', 'Dados cadastrados na tabela:PreÃ§o, PreÃ§o: 21,0'),
+(9, 3, '', 'Dados deletados na tabela: Cidade, Nome: bbbbbb'),
+(10, 3, '', 'Dados alterados na tabela: Cidade, Nome: uuuuuuuu'),
+(11, 3, '', 'Dados alterados na tabela: Cidade, Nome: uuuuuuuu'),
+(12, 3, '', 'Dados alterados na tabela: Cidade, Nome: uuuuuuuu'),
+(13, 3, '', 'Dados cadastrados na tabela: Estado, Nome: '),
+(14, 3, '02/09/2018', 'Dados cadastrados na tabela: Cidade'),
+(15, 3, '02/09/2018', 'Dados cadastrados na tabela: Cidade'),
+(16, 3, '02/09/2018', 'Dados alterados na tabela: Cidade, Nome: aaaaaaaaa'),
+(17, 3, '02/09/2018', 'Dados deletados na tabela: Estado, Nome: SÃ£o Paulo'),
+(18, 3, '02/09/2018', 'Dados deletados na tabela: Cidade, Nome: SÃ£o Paulo'),
+(19, 3, '02/09/2018', 'Dados deletados na tabela: Estado, Nome: SÃ£o Paulo'),
+(20, 3, '02/09/2018', 'Dados deletados na tabela: Estado, Nome: SÃ£o Paulo'),
+(21, 3, '02/09/2018', 'Dados deletados na tabela: Estado, Nome: SÃ£o Paulo '),
+(22, 3, '02/09/2018', 'Dados deletados na tabela: PreÃ§o, PreÃ§o: '),
+(23, 3, '02/09/2018', 'Dados deletados na tabela: Estado, Nome: SÃ£o Paulo'),
+(24, 3, '02/09/2018', 'Dados cadastrados na tabela: Estado'),
+(25, 3, '02/09/2018', 'Dados cadastrados na tabela: Estado'),
+(26, 3, '02/09/2018', 'Dados cadastrados na tabela: Estado'),
+(27, 3, '02/09/2018', 'Dados cadastrados na tabela: PreÃ§o'),
+(28, 3, '02/09/2018', 'Dados cadastrados na tabela: PreÃ§o'),
+(29, 3, '02/09/2018', 'Dados cadastrados na tabela: PreÃ§o'),
+(30, 3, '02/09/2018', 'Dados cadastrados na tabela: Produto'),
+(31, 3, '02/09/2018', 'Dados deletados na tabela: Produto, DescriÃ§Ã£o: 50 metros de calha'),
+(32, 3, '02/09/2018', 'Dados cadastrados na tabela: Produto'),
+(33, 3, '02/09/2018', 'Dados cadastrados na tabela: Produto'),
+(34, 3, '02/09/2018', 'Dados cadastrados na tabela: Produto'),
+(36, 3, '02/09/2018', 'Dados cadastrados na tabela: Funcionario'),
+(37, 3, '02/09/2018', 'Dados cadastrados na tabela: Cliente'),
+(38, 3, '03/09/2018', 'Usuario André Leonamlogou'),
+(39, 3, '03/09/2018', 'Usuario André Leonam logou');
 
 --
 -- Indexes for dumped tables
@@ -206,6 +315,13 @@ ALTER TABLE `produto`
   ADD KEY `fk_preco` (`Preco_Unitario`);
 
 --
+-- Indexes for table `registro`
+--
+ALTER TABLE `registro`
+  ADD PRIMARY KEY (`Codigo_Registro`),
+  ADD KEY `fk_funcionario_registro` (`Funcionario`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -213,25 +329,25 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `Codigo_Cidade` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `Codigo_Cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `Codigo_Estado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `Codigo_Funcionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orcamento`
@@ -243,13 +359,19 @@ ALTER TABLE `orcamento`
 -- AUTO_INCREMENT for table `preco`
 --
 ALTER TABLE `preco`
-  MODIFY `Codigo_Preco` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Preco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `Codigo_Produto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `registro`
+--
+ALTER TABLE `registro`
+  MODIFY `Codigo_Registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables
@@ -288,6 +410,12 @@ ALTER TABLE `preco`
 --
 ALTER TABLE `produto`
   ADD CONSTRAINT `fk_preco` FOREIGN KEY (`Preco_Unitario`) REFERENCES `preco` (`Codigo_Preco`);
+
+--
+-- Limitadores para a tabela `registro`
+--
+ALTER TABLE `registro`
+  ADD CONSTRAINT `fk_funcionario_registro` FOREIGN KEY (`Funcionario`) REFERENCES `funcionario` (`Codigo_Funcionario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
