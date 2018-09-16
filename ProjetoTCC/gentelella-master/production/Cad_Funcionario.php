@@ -42,6 +42,8 @@
 
                 <label>e-mail/login*</label><input id="alinhar" placeholder="salinasleonardo@live.com" type="text" name="email" size="31"><br><br>
 
+                <label>Senha*</label><input id="alinhar" placeholder="100" type="text" name="senha" size="31"><br><br>
+
                 <label>Status:</label>
                 <select name="status" id="combo_left">
                     <option>Selecione</option>

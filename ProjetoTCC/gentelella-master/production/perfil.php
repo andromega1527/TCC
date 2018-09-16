@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css2\main.css">
 	
 
   <title>Calhacas</title>
@@ -14,6 +13,7 @@
   <?php
     require "link.php";
   ?>
+  <link rel="stylesheet" type="text/css" href="css2\main.css">
 
   </head>
 
@@ -23,7 +23,7 @@
   ?>
 
   <div class="right_col" role="main">  
-    <div id="lista">
+    <div id="formulario">
       <h1>Perfil</h1><br>
 
       <form action="Res_Edit_Funcionario.php" method="Post" name="formulario">

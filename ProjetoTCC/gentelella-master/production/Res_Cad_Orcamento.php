@@ -5,16 +5,22 @@
 	$data = $_POST['data'];
 	$hora = $_POST['hora'];
 	$desconto = $_POST['desconto'];
-	$subT = $_POST['subT'];
-	$total = $_POST['total'];
 
 	require("ConectBD.php");
 
 	$cod = mysqli_query($link, "SELECT Codigo_Orcamento FROM Orcamento");
 
-	$sqlInsert = "INSERT INTO Orcamento (Status, Cliente, Funcionario, Data_Emissao, Hora_Emissao, Desconto, SubTotal, Total) VALUES ('$status', '$cliente', '$funcionario', '$data', '$hora', '$desconto', '$subT', '$total')";
+	$sqlInsert = "INSERT INTO Orcamento (Status, Cliente, Funcionario, Data_Emissao, Hora_Emissao, Desconto) VALUES ('$status', '$cliente', '$funcionario', '$data', '$hora', '$desconto')";
 
 	mysqli_query($link, $sqlInsert) or die ("Não foi possivel inserir no Banco!!! :(");
+
+	$codO = mysqli_query($link, "SELECT Codigo_Orcamento FROM Orcamento");
+	while ($cont = mysqli_fetch_array($codO)) {
+		print_r($cont);
+		$codOF = end($cont);
+	}
+	
+	
 
 
 	// Registro --------------------------------------------------------------------
@@ -32,5 +38,5 @@
 
 	mysqli_close();
 
-	header("Location:Cad_Orcamento_Detalhes.php?cod=$cod");
+	header("Location:Cad_Orcamento_Detalhes.php?cod=$codOF");
 ?>

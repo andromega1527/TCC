@@ -23,6 +23,7 @@
 
         		<label>Status:</label>
                 <select name="status" id="combo_left">
+                    <option>Selecione</option>
                     <option value="Ativo">Ativo</option>
                     <option value="Desativo">Desativo</option>
                 </select><br><br>
@@ -56,10 +57,6 @@
         		<label>Hora de Emissão:</label><input id="alinhar" placeholder="Hora de Emissão" type="date" name="hora" size="31"><br><br>
 
         		<label>Desconto:</label><input id="alinhar" placeholder="Desconto" type="text" name="desconto" size="31"><br><br>
-
-        		<label>SubTotal:</label><input id="alinhar" placeholder="SubTotal" type="text" name="subT" size="31"><br><br>
-
-        		<label>Total Geral:</label><input id="alinhar" placeholder="Total Geral" type="text" name="total" size="31"><br><br>
 
         		<input type="submit" name="cadastrar" value="Cadastrar"><br><br><br>
 

@@ -142,6 +142,7 @@ CREATE TABLE `orcamento` (
   `Funcionario` int(11) NOT NULL,
   `Data_Emissao` varchar(10) NOT NULL,
   `Hora_Emissao` varchar(5) NOT NULL,
+  `Desconto` int(11) NOT NULL,
   `SubTotal` decimal(10,0) NOT NULL,
   `Total` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

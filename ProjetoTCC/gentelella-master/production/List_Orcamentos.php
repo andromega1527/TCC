@@ -34,7 +34,6 @@
 						<td>Data de Emissão</td>
 						<td>Hora de Emissão</td>
 						<td>Desconto</td>
-						<td>Parcelamento</td>
 						<td>SubTotal</td>
 						<td>Total</td>
 					</tr>
@@ -44,40 +43,46 @@
 					<?php
 						@$pesquisa = $_POST['pesquisa'];
 
-						if (isset($pesquisa)) {
-							$sqlSelect = "SELECT 
-										  FROM Orcamento 
-										  WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY Cliente.Nome ASC ";
-						} else {
-							$sqlSelect = "SELECT 
-										  FROM Orcamento 
-										  ORDER BY Cliente.Nome ASC ";
-						}
-
 						//Conexão com o Banco
 						require("ConectBD.php");
 
+						if (isset($pesquisa)) {
+							$sqlSelect = "SELECT Orcamento.Codigo_Orcamento, Orcamento.Status, Orcamento.Cliente, Orcamento.Funcionario, Orcamento.Data_Emissao, Orcamento.Hora_Emissao, Orcamento.Desconto, Orcamento.SubTotal, Orcamento.Total, Cliente.Codigo_Cliente, Cliente.Nome, Funcionario.Codigo_Funcionario, Funcionario.Nome
+										  FROM Orcamento 
+										  INNER JOIN Cliente ON Orcamento.Cliente = Cliente.Codigo_Cliente
+										  INNER JOIN Funcionario ON Orcamento.Funcionario = Funcionario.Codigo_Funcionario
+										  WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY Cliente.Nome ASC ";
+						} else {
+							$sqlSelect = "SELECT Orcamento.Codigo_Orcamento, Orcamento.Status, Orcamento.Cliente, Orcamento.Funcionario, Orcamento.Data_Emissao, Orcamento.Hora_Emissao, Orcamento.Desconto, Orcamento.SubTotal, Orcamento.Total, Cliente.Codigo_Cliente, Cliente.Nome, Funcionario.Codigo_Funcionario, Funcionario.Nome
+										  FROM Orcamento 
+										  INNER JOIN Cliente ON Orcamento.Cliente = Cliente.Codigo_Cliente
+										  INNER JOIN Funcionario ON Orcamento.Funcionario = Funcionario.Codigo_Funcionario
+										  ORDER BY Cliente.Nome ASC ";
+						}
+
 						$resultado = mysqli_query($link, $sqlSelect);
 
+						$c = 1;
+
 						while ($cont = mysqli_fetch_array($resultado)) {
+							$cod = $cont['Codigo_Orcamento'];
 							$status = $cont['Status'];
-							$cliente = $cont['Cliente'];
-							$funcionario = $cont['Funcionario'];
+							$cliente = $cont[10];
+							$funcionario = $cont['Nome'];
 							$data = $cont['Data_Emissao'];
 							$hora = $cont['Hora_Emissao'];
 							$desconto = $cont['Desconto'];
-							$parcelamento = $cont['Parcelamento'];
 							$subT = $cont['SubTotal'];
 							$total = $cont['Total'];
 
-							echo "<tr>
+							echo "<tr id=\"edit". $c++ ."\">
+									<input type=\"hidden\" name=\"cod\" value=\"$cod\">
 									<td>$status</td>
 									<td>$cliente</td>
 									<td>$funcionario</td>
 									<td>$data</td>
 									<td>$hora</td>
 									<td>$desconto</td>
-									<td>$parcelamento</td>
 									<td>$subT</td>
 									<td>$total</td>
 					  			</tr>";
@@ -94,6 +99,7 @@
 <?php
 	require "script.php";
 ?>
+<script src="js2/.js"></script>
 
 </body>
 </html>
