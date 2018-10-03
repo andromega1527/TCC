@@ -24,7 +24,9 @@
 			<input type="submit" value="Pesquisar">
 		</form><br><br>
 
-		<div align="center">
+		<div id="tabela" align="center">
+			<button id="editar">Editar Dados</button>
+
 			<table class="tabela" align="center">
 				<thead>
 					<tr style="color: black">
@@ -36,10 +38,11 @@
 						<td>Desconto</td>
 						<td>SubTotal</td>
 						<td>Total</td>
+						<td>Produto</td>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="tabela_Dados">
 					<?php
 						@$pesquisa = $_POST['pesquisa'];
 
@@ -85,6 +88,7 @@
 									<td>$desconto</td>
 									<td>$subT</td>
 									<td>$total</td>
+									<td><a href=\"List_ProdutosL.php?cod=$cod\"><button>Produtos</button></a></td>
 					  			</tr>";
 						}
 					?>
@@ -100,7 +104,7 @@
 <?php
 	require "script.php";
 ?>
-<script src="js2/.js"></script>
+<script src="js2/mainOrcamentoAtivo.js"></script>
 
 </body>
 </html>

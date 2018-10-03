@@ -12,20 +12,20 @@ btnElement.onclick = function() {
 			var btnElementEdit = document.createElement('button');
 			var btnElementDelet = document.createElement('button');
 			var linkEdit = document.createElement('a');
-			linkEdit.setAttribute('href', 'Edit_Funcionario.php?cod=' + codValue);
+			linkEdit.setAttribute('href', 'Edit_Orcamento_Ativo.php?cod=' + codValue);
 			var linkDelet = document.createElement('a');
-			linkDelet.setAttribute('href', 'Res_Delet_Funcionario.php?cod=' + codValue);
+			linkDelet.setAttribute('href', 'Res_Delet_Orcamento_Ativo.php?cod=' + codValue);
 			var txtEditar = document.createTextNode('Editar');
 			var txtDeletar = document.createTextNode('Deletar');
 
 			trTable.appendChild(tdElementEdit);
 			trTable.appendChild(tdElementDelet);
-			tdElementEdit.appendChild(btnElementEdit);
-			tdElementDelet.appendChild(btnElementDelet);
-			btnElementEdit.appendChild(linkEdit);
-			btnElementDelet.appendChild(linkDelet);
-			linkEdit.appendChild(txtEditar);
-			linkDelet.appendChild(txtDeletar);
+			tdElementEdit.appendChild(linkEdit);
+			tdElementDelet.appendChild(linkDelet);
+			linkEdit.appendChild(btnElementEdit);
+			linkDelet.appendChild(btnElementDelet);
+			btnElementEdit.appendChild(txtEditar);
+			btnElementDelet.appendChild(txtDeletar);
 
 		} else {
 			break;

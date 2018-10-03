@@ -20,12 +20,12 @@ btnElement.onclick = function() {
 
 			trTable.appendChild(tdElementEdit);
 			trTable.appendChild(tdElementDelet);
-			tdElementEdit.appendChild(btnElementEdit);
-			tdElementDelet.appendChild(btnElementDelet);
-			btnElementEdit.appendChild(linkEdit);
-			btnElementDelet.appendChild(linkDelet);
-			linkEdit.appendChild(txtEditar);
-			linkDelet.appendChild(txtDeletar);
+			tdElementEdit.appendChild(linkEdit);
+			tdElementDelet.appendChild(linkDelet);
+			linkEdit.appendChild(btnElementEdit);
+			linkDelet.appendChild(btnElementDelet);
+			btnElementEdit.appendChild(txtEditar);
+			btnElementDelet.appendChild(txtDeletar);
 
 		} else {
 			break;

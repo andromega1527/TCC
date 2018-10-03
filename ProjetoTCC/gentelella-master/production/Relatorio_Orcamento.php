@@ -45,17 +45,17 @@
 						require("ConectBD.php");
 
 						if(isset($pesquisa)){
-						  	$sqlSelect = "SELECT Cliente.Codigo_Cliente, Cliente.Nome, Cidade.Codigo_Cidade, Cidade.Nome, Estado.Codigo_Estado, Estado.Nome 
-						  				  FROM Cliente 
-						  				  INNER JOIN Cidade ON Cliente.Cidade = Cidade.Codigo_Cidade
-						  				  INNER JOIN Estado ON Cliente.Estado = Estado.Codigo_Estado
-						  				  WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY Cliente.Nome ASC ";
+						  	$sqlSelect = "SELECT 
+						  				  FROM  
+						  				  INNER JOIN  ON  = 
+						  				  INNER JOIN  ON  = 
+						  				  WHERE  LIKE '%$pesquisa%' ORDER BY  ASC ";
 						} else {
-						  	$sqlSelect = "SELECT Cliente.Codigo_Cliente, Cliente.Nome, Cidade.Codigo_Cidade, Cidade.Nome, Estado.Codigo_Estado, Estado.Nome 
-						  				  FROM Cliente
-						  				  INNER JOIN Cidade ON Cliente.Cidade = Cidade.Codigo_Cidade
-						  				  INNER JOIN Estado ON Cliente.Estado = Estado.Codigo_Estado
-						  				  ORDER BY Cliente.Nome ASC";
+						  	$sqlSelect = "SELECT  
+						  				  FROM 
+						  				  INNER JOIN  ON  = 
+						  				  INNER JOIN  ON  = 
+						  				  ORDER BY  ASC";
 						}
 
 						$resultado = mysqli_query($link, $sqlSelect);

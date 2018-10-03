@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Set-2018 às 03:59
+-- Generation Time: 02-Out-2018 às 17:25
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -141,11 +141,19 @@ CREATE TABLE `orcamento` (
   `Cliente` int(11) NOT NULL,
   `Funcionario` int(11) NOT NULL,
   `Data_Emissao` varchar(10) NOT NULL,
-  `Hora_Emissao` varchar(5) NOT NULL,
+  `Hora_Emissao` varchar(10) NOT NULL,
   `Desconto` int(11) NOT NULL,
   `SubTotal` decimal(10,0) NOT NULL,
   `Total` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `orcamento`
+--
+
+INSERT INTO `orcamento` (`Codigo_Orcamento`, `Status`, `Cliente`, `Funcionario`, `Data_Emissao`, `Hora_Emissao`, `Desconto`, `SubTotal`, `Total`) VALUES
+(11, 'Ativo', 1, 3, '2018-09-11', '2018-', 33, '530', '355'),
+(16, 'Ativo', 1, 3, '2018-09-11', '2018-', 10, '80', '72');
 
 -- --------------------------------------------------------
 
@@ -158,6 +166,16 @@ CREATE TABLE `orcamento_detalhes` (
   `Codigo_Produto` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `orcamento_detalhes`
+--
+
+INSERT INTO `orcamento_detalhes` (`Codigo_Orcamento`, `Codigo_Produto`, `Quantidade`) VALUES
+(11, 1, 40),
+(11, 4, 70),
+(11, 6, 80),
+(16, 1, 40);
 
 -- --------------------------------------------------------
 
@@ -253,7 +271,38 @@ INSERT INTO `registro` (`Codigo_Registro`, `Funcionario`, `Data`, `Descricao`) V
 (36, 3, '02/09/2018', 'Dados cadastrados na tabela: Funcionario'),
 (37, 3, '02/09/2018', 'Dados cadastrados na tabela: Cliente'),
 (38, 3, '03/09/2018', 'Usuario André Leonamlogou'),
-(39, 3, '03/09/2018', 'Usuario André Leonam logou');
+(39, 3, '03/09/2018', 'Usuario André Leonam logou'),
+(40, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(41, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(42, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(43, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(44, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(45, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(46, 3, '13/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(47, 3, '14/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(48, 3, '16/09/2018', 'Usuario André Leonam logou'),
+(49, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(50, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(51, 3, '16/09/2018', 'Usuario André Leonam logou'),
+(52, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(53, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(54, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(55, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(56, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(57, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(58, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(59, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(60, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(61, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(62, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(63, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento'),
+(64, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(65, 3, '16/09/2018', 'Dados cadastrados na tabela: Orcamento_Detalhes'),
+(66, 3, '02/10/2018', 'Dados alterados na tabela: OrÃ§amento, Nome: '),
+(67, 3, '02/10/2018', 'Dados alterados na tabela: OrÃ§amento, Nome: '),
+(68, 3, '02/10/2018', 'Dados alterados na tabela: OrÃ§amento, Nome: '),
+(69, 3, '02/10/2018', 'Dados alterados na tabela: OrÃ§amento'),
+(70, 3, '02/10/2018', 'Dados alterados na tabela: OrÃ§amento');
 
 --
 -- Indexes for dumped tables
@@ -354,7 +403,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT for table `orcamento`
 --
 ALTER TABLE `orcamento`
-  MODIFY `Codigo_Orcamento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo_Orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `preco`
@@ -372,7 +421,7 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `Codigo_Registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `Codigo_Registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Constraints for dumped tables

@@ -62,7 +62,8 @@ $logado = $_SESSION['login'];
                 </li>
                 <li><a><i class="fa fa-edit"></i> Orçamento <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="List_Orcamentos_Ativos.php">Orçamentos Ativos</a></li>
+                    <li><a href="Relatorio_Orcamento.php">Relatório de Orcamentos</a></li>
+                    <li><a href="List_Orcamentos_Ativos.php">Lista de Orçamentos Ativos</a></li>
                     <li><a href="List_Orcamentos.php">Lista de Orçamentos</a></li>
                     <li><a href="Cad_Orcamento.php">Cadastro de Orçamentos</a></li>
                   </ul>

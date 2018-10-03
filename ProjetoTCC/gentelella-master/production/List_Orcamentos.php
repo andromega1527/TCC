@@ -18,13 +18,16 @@
 
 <div class="right_col" id="scroll" role="main">
 	<div id="lista">
-		<h1>Lista de Orçamentos</h1><br>
+		<h1>Lista de Orçamentos</h1><br><br>
+
 		<form method="Post" action="">
 			<input type="text" name="pesquisa">
 			<input type="submit" value="Pesquisar">
 		</form><br><br>
 
-		<div align="center">
+		<div id="tabela" align="center">
+			<button id="editar">Editar Dados</button>
+
 			<table class="tabela" border="2px" align="center">
 				<thead>
 					<tr style="color: black">
@@ -36,10 +39,11 @@
 						<td>Desconto</td>
 						<td>SubTotal</td>
 						<td>Total</td>
+						<td>Produto</td>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="tabela_Dados">
 					<?php
 						@$pesquisa = $_POST['pesquisa'];
 
@@ -85,6 +89,7 @@
 									<td>$desconto</td>
 									<td>$subT</td>
 									<td>$total</td>
+									<td><a href=\"List_ProdutosL.php?cod=$cod\"><button>Produtos</button></a></td>
 					  			</tr>";
 						}
 					?>
@@ -99,7 +104,7 @@
 <?php
 	require "script.php";
 ?>
-<script src="js2/.js"></script>
+<script src="js2/mainOrcamento.js"></script>
 
 </body>
 </html>

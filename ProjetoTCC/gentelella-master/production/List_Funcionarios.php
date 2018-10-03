@@ -18,7 +18,7 @@
 <div class="right_col" id="scroll" role="main">
 	<div id="lista">
 		
-		<h1>Lista de Funcionários</h1><br>
+		<h1>Lista de Funcionários</h1><br><br>
 
 		<form method="Post" action="">
 			<input type="text" name="pesquisa">

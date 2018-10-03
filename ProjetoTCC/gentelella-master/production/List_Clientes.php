@@ -19,7 +19,7 @@
 <div id="scroll" class="right_col" role="main">
 	<div id="lista">
 		
-		<h1>Lista de Clientes</h1><br>
+		<h1>Lista de Clientes</h1><br><br>
 
 		<form method="Post" action="">
 			<input type="text" name="pesquisa">
