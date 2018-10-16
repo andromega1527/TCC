@@ -32,6 +32,7 @@
         	<h1>Edição de Orçamentos Ativos</h1>
 
         	<form action="Res_Edit_Orcamento_Ativo.php" method="Post" name="formulario">
+                <input type="hidden" name="cod" value="<?php echo $cod; ?>">
 
                 <label>Status:</label>
                 <select name="status" id="combo_left">
@@ -50,11 +51,11 @@
                         $resultado = mysqli_query($link, "SELECT Codigo_Cliente, Nome FROM Cliente");
 
                         while($cont = mysqli_fetch_array($resultado)) {
-                            $cod = $cont['Codigo_Cliente'];
+                            $codC = $cont['Codigo_Cliente'];
                             $nome = $cont['Nome'];
                     ?>
 
-                    <option value="<?php echo $cod; ?>"><?php echo $nome; ?></option>
+                    <option value="<?php echo $codC; ?>"><?php echo $nome; ?></option>
 
                     <?php } ?>
 

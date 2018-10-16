@@ -22,8 +22,6 @@
 
     <div class="right_col" role="main">
 
-      <h1 style="color: red">Parte de Orçamento não está Funcional!</h1>
-
   
 
   <?php

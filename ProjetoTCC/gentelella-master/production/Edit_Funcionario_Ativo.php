@@ -56,6 +56,13 @@
 
                 <label>Senha*</label><input id="alinhar" size="31" type="text" name="senha" value="<?php echo $dados["Senha"]; ?>"><br><br>
 
+                <label>Permissão*</label>
+                <select name="permissao" id="combo_left">
+                    <option>Selecione</option>
+                    <option value="Usuario">Usuario</option>
+                    <option value="Administrador">Administrador</option>
+                </select><br><br>
+
                 <label>Status*</label>
                 <select name="status" id="combo_left">
                     <option>Selecione</option>

@@ -34,9 +34,9 @@
         	<form action="Res_Edit_Cidade.php" method="Post" name="formulario">
                 <input type="hidden" name="cod" value="<?php echo $dados["Codigo_Cidade"]; ?>">
 
-        		<label>Nome*</label><input type="text" name="nome" value="<?php echo $dados["Nome"]; ?>"><br>
+        		<label>Nome*</label><input id="alinhar" size="31" type="text" name="nome" value="<?php echo $dados["Nome"]; ?>"><br><br>
 
-        		<label>Descrição*</label><input type="text" name="descricao" value="<?php echo $dados["Descricao"]; ?>"><br>
+        		<label>Descrição*</label><input id="alinhar" size="31" type="text" name="descricao" value="<?php echo $dados["Descricao"]; ?>"><br><br>
 
         		<input type="submit" name="cadastrar" value="Cadastrar">
 

@@ -114,6 +114,7 @@
 									<td>$email</td>
 									<td>$estado</td>
 									<td>$cidade</td>
+									<td id=\"excluir-modal\"><a class=\"btn-modal\"></a></td>
 					  			</tr>";
 						}
 					?>
@@ -127,11 +128,42 @@
 		
 	</div>
 
+
+	<!-- -------------------------------------- Começo da Janela -------------------------------------- 
+            ----------------------------------------------------------------------------------------------- -->
+
+                <div id="modal">
+                    <div class="modal-box">
+                        <div id="borda">
+                            <div class="fechar"><b><a style="color: black" class="sla">X</a></b></div>
+                        </div>
+                        <div id="formulario-modal">
+
+                        	<h4>Se você fizer isso, esses dados não poderão ser recuperados. Tem certeza que você quer fazer isso?</h4>
+
+                            <div class="modal-box-conteudo">
+	                            <form method="Post" name="formulario">
+
+	                                <input type="submit" name="Sim" value="Sim">
+
+	                            </form>
+
+                                <button id="cancel" style="float: right;">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- -------------------------------------- Final da Janela -------------------------------------- 
+            ---------------------------------------------------------------------------------------------- -->
+
+
 <?php
 	require "script.php";
 ?>
 
 <script src="js2/mainCliente.js"></script>
+<script src="js2/mainModal.js"></script>
 
 </body>
 </html>

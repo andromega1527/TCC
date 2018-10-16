@@ -52,11 +52,11 @@
                         $resultado = mysqli_query($link, "SELECT Codigo_Cliente, Nome FROM Cliente");
 
                         while($cont = mysqli_fetch_array($resultado)) {
-                            $cod = $cont['Codigo_Cliente'];
+                            $codC = $cont['Codigo_Cliente'];
                             $nome = $cont['Nome'];
                     ?>
 
-                    <option value="<?php echo $cod; ?>"><?php echo $nome; ?></option>
+                    <option value="<?php echo $codC; ?>"><?php echo $nome; ?></option>
 
                     <?php } ?>
 

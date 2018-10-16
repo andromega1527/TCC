@@ -44,7 +44,14 @@
 
                 <label>Senha*</label><input id="alinhar" placeholder="100" type="text" name="senha" size="31"><br><br>
 
-                <label>Status:</label>
+                <label>Permissão*</label>
+                <select name="permissao" id="combo_left">
+                    <option>Selecione</option>
+                    <option value="Usuario">Usuário</option>
+                    <option value="Administrador">Administrador</option>
+                </select><br><br>
+
+                <label>Status*</label>
                 <select name="status" id="combo_left">
                     <option>Selecione</option>
                     <option value="Ativo">Ativo</option>

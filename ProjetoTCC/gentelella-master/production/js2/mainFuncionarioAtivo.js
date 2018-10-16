@@ -8,24 +8,28 @@ btnElement.onclick = function() {
 			var codValue = cod.value;
 
 			var tdElementEdit = document.createElement('td');
-			var tdElementDelet = document.createElement('td');
 			var btnElementEdit = document.createElement('button');
 			var btnElementDelet = document.createElement('button');
 			var linkEdit = document.createElement('a');
 			linkEdit.setAttribute('href', 'Edit_Funcionario_Ativo.php?cod=' + codValue);
-			var linkDelet = document.createElement('a');
-			linkDelet.setAttribute('href', 'Res_Delet_Funcionario_Ativo.php?cod=' + codValue);
+			var linkDelet = document.querySelector('table.tabela tbody#tabela_Dados tr#edit' + i + ' td#excluir-modal a.btn-modal');
 			var txtEditar = document.createTextNode('Editar');
 			var txtDeletar = document.createTextNode('Deletar');
 
 			trTable.appendChild(tdElementEdit);
-			trTable.appendChild(tdElementDelet);
 			tdElementEdit.appendChild(linkEdit);
-			tdElementDelet.appendChild(linkDelet);
 			linkEdit.appendChild(btnElementEdit);
 			linkDelet.appendChild(btnElementDelet);
 			btnElementEdit.appendChild(txtEditar);
 			btnElementDelet.appendChild(txtDeletar);
+
+			var tdTable = document.querySelector('table.tabela tbody#tabela_Dados tr#edit' + i + ' td#excluir-modal');
+			tdTable.setAttribute('style', 'display: inline-block;');
+			tdElementEdit.setAttribute('style', 'display: inline-block;');
+			tdElementEdit.setAttribute('style', 'border: none;');
+
+			var linkExcluir = document.querySelector("form[name=formulario]");
+			linkExcluir.setAttribute('action', 'Res_Delet_Funcionario_Ativo.php?cod=' + codValue);
 
 		} else {
 			break;

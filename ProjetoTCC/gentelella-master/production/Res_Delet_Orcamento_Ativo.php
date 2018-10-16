@@ -8,18 +8,9 @@
 	// ----------------------------------------------------------------------------
 	session_start();
 
-	$sqlSelect = "SELECT * FROM Orcamento WHERE Codigo_Orcamento = '$cod'";
-
-	$resultado = mysqli_query($link, $sqlSelect);
-
-	while ($cont = mysqli_fetch_array($resultado)) {
-		$nome = $cont['Nome'];
-	}
-
 	$funcionario = $_SESSION['cod'];
 	$data = date('d/m/Y');
-	$campo = $nome;
-	$descricao = "Dados deletados na tabela: Orçamento, Nome: $campo";
+	$descricao = "Dados deletados na tabela: Orçamento";
 
 	mysqli_query($link, "INSERT INTO Registro (Funcionario, Data, Descricao) VALUES ('$funcionario', '$data', '$descricao')") or die ("Erro ao cadastrar Registro!!!");
 	// ----------------------------------------------------------------------------

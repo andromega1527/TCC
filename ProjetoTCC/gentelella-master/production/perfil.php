@@ -26,8 +26,8 @@
     <div id="formulario">
       <h1>Perfil</h1><br>
 
-      <form action="Res_Edit_Funcionario.php" method="Post" name="formulario">
-        <input type="hidden" name="cod" value="<?php echo $dados["Codigo_Funcionario"]; ?>">
+      <form action="Res_perfil.php" method="Post" name="formulario">
+        <input type="hidden" name="cod" value="<?php echo $_SESSION["cod"]; ?>">
 
         <label>Nome:</label><input id="alinhar" size="31" type="text" name="nome" value="<?php echo $_SESSION['nome']; ?>"><br><br>
 
@@ -50,13 +50,6 @@
         <label>Email:</label><input id="alinhar" size="31" type="text" name="email" value="<?php echo $_SESSION['login']; ?>"><br><br>
 
         <label>Senha:</label><input id="alinhar" size="31" type="text" name="senha" value="<?php echo $_SESSION['senha']; ?>"><br><br>
-
-        <label>Status:</label>
-          <select name="status" id="combo_left">
-            <option>Selecione</option>
-            <option value="Ativo">Ativo</option>
-            <option value="Desativo">Desativo</option>
-          </select><br><br><br><br>
 
         <input type="submit" name="Atualizar" value="Atualizar"><br><br><br>
 

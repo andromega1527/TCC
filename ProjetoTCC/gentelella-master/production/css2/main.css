@@ -30,6 +30,11 @@ td {
 	margin: 2px;
 }
 
+#formulario-modal {
+	text-align: left;
+	margin: 2px;
+}
+
 label {
 	color: black;
 }
@@ -111,4 +116,9 @@ input[type="date"] {
 
 #combo_orc {
 	left: 400px;
+}
+
+#excluir-modal {
+	display: none;
+	border: none;
 }

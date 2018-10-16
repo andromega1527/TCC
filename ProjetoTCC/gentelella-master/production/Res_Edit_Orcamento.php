@@ -9,8 +9,17 @@
 	/* Conexão */
 	require("ConectBD.php");
 
+	//Selecionar o Desconto anterior
+	$sqlSelect = mysqli_query($link, "SELECT * FROM Orcamento WHERE Codigo_Orcamento = $cod");
+	while ($cont = mysqli_fetch_array($sqlSelect)) {
+		$subTotal = $cont['SubTotal'];
+	}
 
-	// Registro --------------------------------------------------------------------
+	$descontoT = $subTotal * ($desconto / 100);
+	$tT = $subTotal - $descontoT;
+
+
+	// Registro -------------------------------------------------------------------
 	// ----------------------------------------------------------------------------
 	session_start();
 
@@ -23,7 +32,7 @@
 	// ----------------------------------------------------------------------------
 
 
-	mysqli_query($link, "UPDATE Orcamento SET Status = '$status', Cliente = '$cliente', Data_Emissao = '$data', Hora_Emissao = '$hora', Desconto = '$desconto' WHERE Codigo_Orcamento = $cod") or die ("Não foi possivel inserir no Banco!!! :(");
+	mysqli_query($link, "UPDATE Orcamento SET Status = '$status', Cliente = '$cliente', Data_Emissao = '$data', Hora_Emissao = '$hora', Desconto = '$desconto', Total = '$tT' WHERE Codigo_Orcamento = $cod") or die ("Não foi possivel inserir no Banco!!! :(");
 
 	mysqli_close();
 

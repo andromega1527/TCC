@@ -3,7 +3,7 @@
 <head>
 	<html lang="pt">
 	<meta charset="utf-8" />
-	<title>Relatório de Clientes</title>
+	<title>Relatório de Orçamentos</title>
 
 	<?php
 		require "link.php";
@@ -19,7 +19,7 @@
 <div id="scroll" class="right_col" role="main">
 	<div id="lista">
 		
-		<h1>Relatório de Clientes</h1><br>
+		<h1>Relatório de Orçamentos</h1><br>
 
 		<form method="Post" action="">
 			<input type="text" name="pesquisa">
@@ -31,9 +31,9 @@
 			<table class="tabela" border="2px" align="center">
 				<thead id="tabela">
 					<tr id="coluna_Principal">
-						<td>Nome</td>
-						<td>Estado</td>
-						<td>Cidade</td>
+						<td>Orçamento</td>
+						<td>Nome do Cliente</td>
+						<td>Nome do Funcionario</td>
 					</tr>
 				</thead>
 
@@ -45,17 +45,17 @@
 						require("ConectBD.php");
 
 						if(isset($pesquisa)){
-						  	$sqlSelect = "SELECT 
-						  				  FROM  
-						  				  INNER JOIN  ON  = 
-						  				  INNER JOIN  ON  = 
-						  				  WHERE  LIKE '%$pesquisa%' ORDER BY  ASC ";
+						  	$sqlSelect = "SELECT Orcamento.Codigo_Orcamento, Orcamento.Cliente, Orcamento.Funcionario, Cliente.Codigo_Cliente, Cliente.Nome, Funcionario.Codigo_Funcionario, Funcionario.Nome
+						  				  FROM Orcamento
+						  				  INNER JOIN Cliente ON Orcamento.Cliente = Cliente.Codigo_Cliente
+						  				  INNER JOIN Funcionario ON Orcamente.Funcionario = Funcionario.Codigo_Funcionario
+						  				  WHERE Cliente.Nome LIKE '%$pesquisa%' ORDER BY Cliente.Nome ASC ";
 						} else {
-						  	$sqlSelect = "SELECT  
-						  				  FROM 
-						  				  INNER JOIN  ON  = 
-						  				  INNER JOIN  ON  = 
-						  				  ORDER BY  ASC";
+						  	$sqlSelect = "SELECT Orcamento.Codigo_Orcamento, Orcamento.Cliente, Orcamento.Funcionario, Cliente.Codigo_Cliente, Cliente.Nome, Funcionario.Codigo_Funcionario, Funcionario.Nome
+						  				  FROM Orcamento
+						  				  INNER JOIN Cliente ON Orcamento.Cliente = Cliente.Codigo_Cliente
+						  				  INNER JOIN Funcionario ON Orcamento.Funcionario = Funcionario.Codigo_Funcionario
+						  				  ORDER BY Cliente.Nome ASC";
 						}
 
 						$resultado = mysqli_query($link, $sqlSelect);
@@ -63,18 +63,14 @@
 						$c = 1;
 
 						while ($cont = mysqli_fetch_array($resultado)) {
-							$cod = $cont['Codigo_Cliente'];
-							$codE = $cont['Codigo_Estado'];
-							$codCi = $cont['Codigo_Cidade'];
-							$nome = $cont[1];
-							$estado = $cont[3];
-							$cidade = $cont['Nome'];
+							$nomeC = $cont[4];
+							$nomeF = $cont['Nome'];
+							$cod = $cont['Codigo_Orcamento'];
 
 							echo "<tr id=\"edit". $c++ ."\">
-									<input type=\"hidden\" name=\"cod\" value=\"$cod\">
-									<td>$nome</td>
-									<td>$estado</td>
-									<td>$cidade</td>
+									<td>$cod</td>
+									<td>$nomeC</td>
+									<td>$nomeF</td>
 					  			</tr>";
 						}
 					?>
