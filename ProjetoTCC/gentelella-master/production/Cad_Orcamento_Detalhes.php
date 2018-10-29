@@ -41,6 +41,10 @@
         <div id="formulario">
             <h1>Cadastro de Orçamentos Detalhes</h1><br><br>
 
+            <div id="botao-editar">
+                <button id="editar">Editar Dados</button>
+            </div>
+
             <!-- -------------------------------------- Começo da Janela -------------------------------------- 
             ----------------------------------------------------------------------------------------------- -->
 
@@ -123,10 +127,15 @@
                                 $produto = $cont['Descricao'];
                                 $quantidade = $cont['Quantidade'];
                                 $preco = $cont['Preco_Unitario'];
+                                $cod = $cont['Codigo_Orcamento'];
+                                $codP = $cont['Codigo_Produto'];
 
                                 echo "<tr>
+                                    <input type=\"hidden\" name=\"cod\" value=\"$cod\">
+                                    <input type=\"hidden\" name=\"codP\" value=\"$codP\">
                                     <td>$produto</td>
                                     <td>$quantidade</td>
+                                    <td id=\"excluir-modal\"><a class=\"btn-modal\"></a></td>
                                 </tr>";
                             }
                         ?>
@@ -142,6 +151,7 @@
 <?php
     require "script.php";
 ?>
+<script src="js2\mainProdutoL.js"></script>
 <script src="js2\mainModal.js"></script>
 
 

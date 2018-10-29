@@ -25,9 +25,11 @@
             </form><br><br>
 
             <div id="tabela" align="center">
-                <button id="editar">Editar Dados</button>
+                <div id="botao-editar">
+                    <button id="editar">Editar Dados</button>
+                </div>
 
-                <table class="tabela" border="2px" align="center">
+                <table id="datatable" class="tabela table table-striped table-bordered" border="2px" align="center">
                     <thead>
                         <tr style="color: black;">
                             <td>Produto</td>

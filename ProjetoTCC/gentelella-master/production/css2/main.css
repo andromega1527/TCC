@@ -12,6 +12,7 @@ table {
 	border: 2px;
 	overflow: auto;
 	padding: 2000px;
+	border-radius: 20px;
 }
 
 td {
@@ -121,4 +122,8 @@ input[type="date"] {
 #excluir-modal {
 	display: none;
 	border: none;
+}
+
+#identifi {
+	color: red;
 }

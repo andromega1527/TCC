@@ -21,14 +21,16 @@
 		<h1>Lista de Cidades</h1><br><br>
 
 		<form method="Post" action="">
-			<input type="text" name="pesquisa">
+			<input type="text" name="pesquisa" placeholder="Pesquisar">
 			<input type="submit" value="Pesquisar">
 		</form><br><br>
 
 		<div id="tabela" align="center">
-			<button id="editar">Editar Dados</button>
+			<div id="botao-editar">
+				<button id="editar">Editar Dados</button>
+			</div>
 
-			<table class="tabela" align="center">
+			<table id="datatable" class="tabela table table-striped table-bordered" align="center">
 				<thead id="tabela">
 					<tr id="coluna_Principal" style="color: black">
 						<td>Nome da Cidade</td>

@@ -26,9 +26,11 @@
 		</form><br><br>
 
 		<div id="tabela" align="center">
-			<button id="editar">Editar Dados</button>
+			<div id="botao-editar">
+				<button id="editar">Editar Dados</button>
+			</div>
 
-			<table class="tabela" align="center">
+			<table id="datatable" class="tabela table table-striped table-bordered" align="center">
 				<thead id="tabela">
 					<tr id="coluna_Principal" style="color: black">
 						<td>Nome</td>
